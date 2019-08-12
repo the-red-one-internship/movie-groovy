@@ -10,7 +10,6 @@ import UIKit
 
 class RootController: UIViewController {
     
-    var firsViewController: ExploreViewController?
     
     @IBAction func switchViews(_ sender: UIButton) {
         

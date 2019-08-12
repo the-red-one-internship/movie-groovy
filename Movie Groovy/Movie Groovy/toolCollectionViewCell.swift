@@ -6,4 +6,11 @@
 //  Copyright © 2019 admin. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class toolCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var toolTitle: UILabel!
+    
+    
+}
