@@ -54,13 +54,24 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! toolCollectionViewCell
         
-        cell.toolTitle.text = items[indexPath.row]
+        // здесь ошибка
+//        if !searchActive && filtered.isEmpty {
+//            cell.toolTitle?.text = items[indexPath.row]
+//        } else {
+//            cell.toolTitle?.text = filtered[indexPath.row]
+//        }
+        
+        if searchBar.text == "" && !searchActive {
+            cell.toolTitle?.text = items[indexPath.row]
+        } else {
+            cell.toolTitle?.text = filtered[indexPath.row]
+        }
         
         return cell
     }
     
     private func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        if searchActive {
+        if searchActive && !filtered.isEmpty {
             selectedItemName = filtered[indexPath.row] as String
         } else {
             selectedItemName = items[indexPath.row] as String
@@ -83,6 +94,8 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
             self.filterContentForSearchText()
             self.collectionView.reloadData()
         }
+        
+        self.collectionView.reloadData()
     }
     
     func filterContentForSearchText() {
@@ -93,7 +106,6 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
             let sourceString = searchBar.text! as NSString
             if stringToLookFor.localizedCaseInsensitiveContains(sourceString as String) {
                 filtered.append(itemName)
-                print(filtered)
             }
         }
     }
@@ -114,12 +126,13 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
             return (countryText.range(of: searchString!, options: NSString.CompareOptions.caseInsensitive).location) != NSNotFound
         })
         
-        collectionView.reloadData()
+        
+        self.collectionView.reloadData()
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = true
-        collectionView.reloadData()
+        self.collectionView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
