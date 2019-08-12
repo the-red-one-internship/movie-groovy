@@ -7,12 +7,14 @@
 //
 
 import Foundation
+
 class ResultArray:Codable {
     var page = 0
     var results = [SearchResult]()
     var totalPages: Int? = 0
     var totalResults: Int? = 0
 }
+
 class SearchResult:Codable, CustomStringConvertible {
     var poster_path: String? = ""
     var adult = false
