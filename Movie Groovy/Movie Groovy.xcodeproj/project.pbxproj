@@ -16,6 +16,7 @@
 		84365A3B22FC30DD0098D666 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84365A3A22FC30DD0098D666 /* SecondViewController.swift */; };
 		848A2CA622FD75F700CBA048 /* toolCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A2CA522FD75F700CBA048 /* toolCollectionViewCell.swift */; };
 		848A2CA822FD761F00CBA048 /* SearchCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A2CA722FD761F00CBA048 /* SearchCollectionReusableView.swift */; };
+		8495C0AD230154F00030BC7A /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495C0AC230154F00030BC7A /* SearchResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		84365A3A22FC30DD0098D666 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		848A2CA522FD75F700CBA048 /* toolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toolCollectionViewCell.swift; sourceTree = "<group>"; };
 		848A2CA722FD761F00CBA048 /* SearchCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionReusableView.swift; sourceTree = "<group>"; };
+		8495C0AC230154F00030BC7A /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				848A2CA722FD761F00CBA048 /* SearchCollectionReusableView.swift */,
 				84365A3722FC2DDD0098D666 /* Supporting Files */,
 				84365A3122FC29B00098D666 /* Info.plist */,
+				8495C0AC230154F00030BC7A /* SearchResult.swift */,
 			);
 			path = "Movie Groovy";
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84365A3B22FC30DD0098D666 /* SecondViewController.swift in Sources */,
+				8495C0AD230154F00030BC7A /* SearchResult.swift in Sources */,
 				84365A3922FC309C0098D666 /* ExploreViewController.swift in Sources */,
 				848A2CA622FD75F700CBA048 /* toolCollectionViewCell.swift in Sources */,
 				848A2CA822FD761F00CBA048 /* SearchCollectionReusableView.swift in Sources */,
