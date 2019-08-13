@@ -13,16 +13,19 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var items = ["Apple", "Orange", "Banana"]
+
+
+    var items = ["Apple", "Orange", "Banana", "Rabbit", "Marty", "Bread"]
     var filtered = [String]()
     var selectedItemName = String()
     var searchActive = false
     let searchController = UISearchController(searchResultsController: nil)
+    var searchResults = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.delegate = self
+        self.collectionView.delegate = self
         collectionView.dataSource = self
         
         self.searchController.searchResultsUpdater = self
@@ -37,7 +40,7 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
         searchController.searchBar.becomeFirstResponder()
         
         self.navigationItem.titleView = searchController.searchBar
-
+        
     }
     
     // MARK: UICollectionViewDataSource
@@ -53,14 +56,6 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! toolCollectionViewCell
-        
-        // здесь ошибка
-//        if !searchActive && filtered.isEmpty {
-//            cell.toolTitle?.text = items[indexPath.row]
-//        } else {
-//            cell.toolTitle?.text = filtered[indexPath.row]
-//        }
-        
         if searchBar.text == "" && !searchActive {
             cell.toolTitle?.text = items[indexPath.row]
         } else {
@@ -76,9 +71,10 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
         } else {
             selectedItemName = items[indexPath.row] as String
         }
+        
         self.performSegue(withIdentifier: "collectionCell", sender: self)
     }
-    
+
     // MARK: Search Bar
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -145,8 +141,55 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
             searchActive = true
             collectionView.reloadData()
         }
+        
         searchController.searchBar.resignFirstResponder()
     }
     
+    func creatingURL(searchText: String) -> URL {
+        let urlString = String(format: "https://api.themoviedb.org/3/search/movie?api_key=072c8bdd40fcf3a56da915ff2677d129&language=en-US&page=1&include_adult=false&query=%@", searchText)
+        return URL(string: urlString)!
+    }
     
+    func performStoreRequest(with url: URL) -> Data? {
+        do {
+            return try Data(contentsOf: url)
+        } catch {
+            print("Download Error: \(error.localizedDescription)")
+            showNetworkError()
+            return nil
+        }
+    }
+    
+    func parse(data: Data) -> [SearchResult] {
+        do {
+            let decoder = JSONDecoder()
+            let result = try decoder.decode(ResultArray.self, from:data)
+            return result.results
+        } catch {
+            print("JSON Error: \(error)")
+            return [] }
+    }
+    
+    func showNetworkError() {
+        let alert = UIAlertController(title: "Whoops...",
+                                      message: "There was an error accessing the server." +
+            " Please try again.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default,
+                                   handler: nil)
+        present(alert, animated: true, completion: nil)
+        alert.addAction(action)
+    }
+    
+    func createArray()->[String] {
+        let url = creatingURL(searchText: "Matrix")
+        print("URL: '\(url)'")
+        let data = performStoreRequest(with: url)
+        let dataArray = (parse(data: data!))
+        var stringArray: [String] = []
+        for item in dataArray {
+            stringArray.append("\(item)")
+        }
+        
+        return stringArray
+    }
 }

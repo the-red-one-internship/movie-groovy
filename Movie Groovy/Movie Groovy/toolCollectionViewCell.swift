@@ -11,6 +11,7 @@ import UIKit
 class toolCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var toolTitle: UILabel!
+    @IBOutlet weak var filmPoster: UIImageView!
     
     
 }
