@@ -144,7 +144,9 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
     }
     
     func creatingURL(searchText: String) -> URL {
-        let urlString = String(format: "https://api.themoviedb.org/3/search/movie?api_key=072c8bdd40fcf3a56da915ff2677d129&language=en-US&page=1&include_adult=false&query=%@", searchText)
+        let encodedText = searchText.addingPercentEncoding(
+            withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        let urlString = String(format: "https://api.themoviedb.org/3/search/movie?api_key=072c8bdd40fcf3a56da915ff2677d129&language=en-US&page=1&include_adult=false&query=%@", encodedText)
         return URL(string: urlString)!
     }
     
