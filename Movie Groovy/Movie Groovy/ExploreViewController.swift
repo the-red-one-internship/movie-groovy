@@ -13,14 +13,11 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
-
-
-    var items = ["Apple", "Orange", "Banana", "Rabbit", "Marty", "Bread"]
+    lazy var items = createArray()
     var filtered = [String]()
     var selectedItemName = String()
     var searchActive = false
     let searchController = UISearchController(searchResultsController: nil)
-    var searchResults = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +71,8 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
         
         self.performSegue(withIdentifier: "collectionCell", sender: self)
     }
-
+    
+    // MARK: -
     // MARK: Search Bar
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -146,7 +144,9 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
     }
     
     func creatingURL(searchText: String) -> URL {
-        let urlString = String(format: "https://api.themoviedb.org/3/search/movie?api_key=072c8bdd40fcf3a56da915ff2677d129&language=en-US&page=1&include_adult=false&query=%@", searchText)
+        let encodedText = searchText.addingPercentEncoding(
+            withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        let urlString = String(format: "https://api.themoviedb.org/3/search/movie?api_key=072c8bdd40fcf3a56da915ff2677d129&language=en-US&page=1&include_adult=false&query=%@", encodedText)
         return URL(string: urlString)!
     }
     
