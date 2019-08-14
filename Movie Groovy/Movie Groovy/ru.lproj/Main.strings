@@ -15,7 +15,7 @@
 "ACN-QR-JRS.placeholder" = "Email";
 
 /* Class = "UIButton"; normalTitle = "Back"; ObjectID = "Ih9-Na-V4R"; */
-"Ih9-Na-V4R.normalTitle" = "Back";
+"Ih9-Na-V4R.normalTitle" = "Назад";
 
 /* Class = "UIButton"; normalTitle = "Выйти"; ObjectID = "Isf-C7-WAb"; */
 "Isf-C7-WAb.normalTitle" = "Выйти";
@@ -24,7 +24,7 @@
 "J8r-Gx-Nmb.normalTitle" = "Регистрация";
 
 /* Class = "UITabBarItem"; title = "Explore"; ObjectID = "J9c-RS-rqy"; */
-"J9c-RS-rqy.title" = "Explore";
+"J9c-RS-rqy.title" = "Поиск";
 
 /* Class = "UILabel"; text = "Общие"; ObjectID = "OEX-Dv-XUz"; */
 "OEX-Dv-XUz.text" = "Общие";
@@ -36,37 +36,37 @@
 "UIs-ZF-qP7.text" = "Когда включено, контент для взрослых будет доступен для просмотра и поиска";
 
 /* Class = "UITextField"; placeholder = "Password confirm"; ObjectID = "YwY-m8-mRV"; */
-"YwY-m8-mRV.placeholder" = "Password confirm";
+"YwY-m8-mRV.placeholder" = "Подтверждение пароля";
 
 /* Class = "UILabel"; text = "Язык содержимого"; ObjectID = "d6c-DV-WBd"; */
 "d6c-DV-WBd.text" = "Язык содержимого";
 
 /* Class = "UISearchBar"; placeholder = "Enter movie title"; ObjectID = "dML-Zz-Jlk"; */
-"dML-Zz-Jlk.placeholder" = "Enter movie title";
+"dML-Zz-Jlk.placeholder" = "Введите название фильма";
 
 /* Class = "UILabel"; text = "Включить контент для взрослых"; ObjectID = "eAF-nk-czS"; */
 "eAF-nk-czS.text" = "Включить контент для взрослых";
 
 /* Class = "UITabBarItem"; title = "Watchlist"; ObjectID = "gIg-yx-p05"; */
-"gIg-yx-p05.title" = "Watchlist";
+"gIg-yx-p05.title" = "Список";
 
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "hIt-45-Ota"; */
-"hIt-45-Ota.placeholder" = "Password";
+"hIt-45-Ota.placeholder" = "Пароль";
 
 /* Class = "UIButton"; normalTitle = "Зарегистрироваться"; ObjectID = "hdC-6Y-HIo"; */
 "hdC-6Y-HIo.normalTitle" = "Зарегистрироваться";
 
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "iSI-ym-Tbf"; */
-"iSI-ym-Tbf.title" = "Settings";
+"iSI-ym-Tbf.title" = "Настройки";
 
 /* Class = "UILabel"; text = "Выход из учетной записи"; ObjectID = "kUJ-wB-KoC"; */
 "kUJ-wB-KoC.text" = "Выход из учетной записи";
 
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "rm4-QT-zFR"; */
-"rm4-QT-zFR.placeholder" = "Password";
+"rm4-QT-zFR.placeholder" = "Пароль";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "uGe-Bs-aeX"; */
-"uGe-Bs-aeX.title" = "Settings";
+"uGe-Bs-aeX.title" = "Настройки";
 
 /* Class = "UITextField"; placeholder = "Email"; ObjectID = "z3N-F9-DTP"; */
 "z3N-F9-DTP.placeholder" = "Email";

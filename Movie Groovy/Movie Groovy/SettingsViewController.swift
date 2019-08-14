@@ -11,6 +11,8 @@ import Firebase
 
 class SettingsViewController: UIViewController {
 
+    let transition = TransitionAnimator()
+    
     
     @IBAction func exitButton(_ sender: Any) {
         do {
@@ -32,15 +34,29 @@ class SettingsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+}
 
-    /*
-    // MARK: - Navigation
+// MARK: - Buttons
+extension SettingsViewController {
+    
+    @IBAction func languageButton(_ sender: Any) {
+        let languageViewController = storyboard!.instantiateViewController(withIdentifier: "LanguageViewController") as! LanguageViewController
+        languageViewController.transitioningDelegate = self as! UIViewControllerTransitioningDelegate
+        languageViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        self.present(languageViewController, animated: true, completion: nil)
+        }
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+// MARK: - Transition
+extension SettingsViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.presenting = true
+        transition.duration = 0.5
+        return transition
     }
-    */
-
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.presenting = false
+        return transition
+    }
 }

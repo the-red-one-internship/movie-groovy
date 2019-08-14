@@ -146,7 +146,7 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
     func creatingURL(searchText: String) -> URL {
         let encodedText = searchText.addingPercentEncoding(
             withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-        let urlString = String(format: "https://api.themoviedb.org/3/search/movie?api_key=072c8bdd40fcf3a56da915ff2677d129&language=en-US&page=1&include_adult=false&query=%@", encodedText)
+        let urlString = String(format: "https://api.themoviedb.org/3/search/movie?api_key=072c8bdd40fcf3a56da915ff2677d129&language=\(Locale.current.languageCode!)&page=1&include_adult=false&query=%@", encodedText)
         return URL(string: urlString)!
     }
     
@@ -183,6 +183,7 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
     func createArray()->[String] {
         let url = creatingURL(searchText: "Matrix")
         print("URL: '\(url)'")
+        print(Locale.current.languageCode!)
         let data = performStoreRequest(with: url)
         let dataArray = (parse(data: data!))
         var stringArray: [String] = []
