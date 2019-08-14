@@ -15,13 +15,15 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//
-//        if Auth.auth().currentUser != nil {
-//            self.performSegue(withIdentifier: "allredyLoggedIn", sender: self)
-//        }
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if Auth.auth().currentUser != nil {
+            //self.performSegue(withIdentifier: "allredyLoggedIn", sender: self)
+            let tabBarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: TabBarViewController.self)) as! TabBarViewController
+            UIApplication.shared.delegate?.window??.rootViewController = tabBarVC
+        }
+    }
 
     /*
     // MARK: - Navigation
