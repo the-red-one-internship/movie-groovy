@@ -9,7 +9,7 @@
 import UIKit
 import  Firebase
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITabBarControllerDelegate {
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -32,8 +32,16 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.delegate = self
 
         // Do any additional setup after loading the view.
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let tabBarIndex = tabBarController.selectedIndex
+        if tabBarIndex == 0 {
+            print("OK")
+        }
     }
     
 
