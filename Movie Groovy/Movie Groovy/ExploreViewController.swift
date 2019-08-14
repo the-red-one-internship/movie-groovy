@@ -182,9 +182,10 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
     
     func createArray()->[String] {
         let url = creatingURL(searchText: "Matrix")
+        let urlString = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=072c8bdd40fcf3a56da915ff2677d129&language=\(Locale.current.languageCode!)&page=1")!
         print("URL: '\(url)'")
         print(Locale.current.languageCode!)
-        let data = performStoreRequest(with: url)
+        let data = performStoreRequest(with: urlString)
         let dataArray = (parse(data: data!))
         var stringArray: [String] = []
         for item in dataArray {
