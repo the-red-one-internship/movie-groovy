@@ -15,11 +15,17 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     
     @IBAction func loginAction(_ sender: Any) {
-        Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (user, error) in
+        guard let email = email.text, let password = password.text else {
+            return
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error == nil {
 //                let goToActivity = self.storyboard?.instantiateViewController(withIdentifier: "TabBar") as! TabBarViewController
 //                self.present(goToActivity, animated: false, completion: nil)
-                self.performSegue(withIdentifier: "loginToHome", sender: self)
+//                self.performSegue(withIdentifier: "loginToHome", sender: self)
+                let tabBarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: TabBarViewController.self)) as! TabBarViewController
+                UIApplication.shared.delegate?.window??.rootViewController = tabBarVC
             } else {
                 let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)

@@ -258,6 +258,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7I7-RT-pH2">
                                 <rect key="frame" x="185" y="575" width="44" height="30"/>
                                 <state key="normal" title="Войти"/>
+                                <connections>
+                                    <action selector="loginAction:" destination="SjU-Ut-bOY" eventType="touchUpInside" id="XsL-nT-FJ1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -273,6 +276,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SzV-3T-OaH"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="z3N-F9-DTP" id="4f9-dt-saJ"/>
+                        <outlet property="password" destination="rm4-QT-zFR" id="OnP-XW-fAI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYu-sX-N4L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -303,7 +310,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="hhh-h3-LoJ" customClass="toolCollectionViewCell" customModule="Movie_Groovy" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="hhh-h3-LoJ" customClass="ToolCollectionViewCell" customModule="Movie_Groovy" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="177" height="271"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -463,18 +470,16 @@
             </objects>
             <point key="canvasLocation" x="1438" y="-1660"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="cqr-f6-5fV">
             <objects>
-                <tabBarController storyboardIdentifier="TabBar" id="kZY-iR-xHK" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hFG-BI-KZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarController storyboardIdentifier="TabBarViewController" id="kZY-iR-xHK" customClass="TabBarViewController" customModule="Movie_Groovy" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="IRy-bE-VZm"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b0S-wM-ypo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <connections>
-                            <outlet property="delegate" destination="kZY-iR-xHK" id="Q8b-o0-95h"/>
-                        </connections>
                     </tabBar>
                     <connections>
                         <segue destination="a1a-47-4NK" kind="relationship" relationship="viewControllers" id="cgX-Ol-7ZW"/>
@@ -482,7 +487,6 @@
                         <segue destination="Xnf-T6-8Lp" kind="relationship" relationship="viewControllers" id="P8y-E0-LKX"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hFG-BI-KZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2548" y="-1660"/>
         </scene>
