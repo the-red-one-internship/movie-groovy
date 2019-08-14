@@ -52,7 +52,7 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! toolCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! ToolCollectionViewCell
         if searchBar.text == "" && !searchActive {
             cell.toolTitle?.text = items[indexPath.row]
         } else {

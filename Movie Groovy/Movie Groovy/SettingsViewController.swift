@@ -7,9 +7,25 @@
 //
 
 import UIKit
+import Firebase
 
 class SettingsViewController: UIViewController {
 
+    
+    @IBAction func exitButton(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+        }
+        catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let inital = storyBoard.instantiateInitialViewController()
+        UIApplication.shared.keyWindow?.rootViewController = inital
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

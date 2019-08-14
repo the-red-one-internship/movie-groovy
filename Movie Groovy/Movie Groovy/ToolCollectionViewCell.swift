@@ -8,7 +8,7 @@
 
 import UIKit
 
-class toolCollectionViewCell: UICollectionViewCell {
+class ToolCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var toolTitle: UILabel!
     @IBOutlet weak var filmPoster: UIImageView!
