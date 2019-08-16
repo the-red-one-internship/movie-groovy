@@ -12,8 +12,11 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
+   
+    var filmDataArray = requestHandler.createFilmDataArray()
+    lazy var items = filmDataArray.0
+    lazy var filmsID = filmDataArray.1
     
-    lazy var items = createArray()
     var filtered = [String]()
     var selectedItemName = String()
     var searchActive = false
@@ -23,7 +26,7 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
         super.viewDidLoad()
         
         self.collectionView.delegate = self
-        collectionView.dataSource = self
+        self.collectionView.dataSource = self
         
         self.searchController.searchResultsUpdater = self
         self.searchController.delegate = self
@@ -32,9 +35,9 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
         self.searchController.hidesNavigationBarDuringPresentation = false
         self.searchController.dimsBackgroundDuringPresentation = true
         self.searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.sizeToFit()
+        self.searchController.searchBar.sizeToFit()
         
-        searchController.searchBar.becomeFirstResponder()
+        self.searchController.searchBar.becomeFirstResponder()
         
         self.navigationItem.titleView = searchController.searchBar
         
@@ -54,10 +57,13 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! ToolCollectionViewCell
         if searchBar.text == "" && !searchActive {
-            cell.toolTitle?.text = items[indexPath.row]
+            cell.filmTitle?.text = items[indexPath.row]
+            //cell.filmPoster?.image =
         } else {
-            cell.toolTitle?.text = filtered[indexPath.row]
+            cell.filmTitle?.text = filtered[indexPath.row]
         }
+        
+        
         
         return cell
     }
@@ -142,56 +148,5 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
         
         searchController.searchBar.resignFirstResponder()
     }
-    
-    func creatingURL(searchText: String) -> URL {
-        let encodedText = searchText.addingPercentEncoding(
-            withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-        let urlString = String(format: "https://api.themoviedb.org/3/search/movie?api_key=072c8bdd40fcf3a56da915ff2677d129&language=\(Locale.current.languageCode!)&page=1&include_adult=false&query=%@", encodedText)
-        return URL(string: urlString)!
-    }
-    
-    func performStoreRequest(with url: URL) -> Data? {
-        do {
-            return try Data(contentsOf: url)
-        } catch {
-            print("Download Error: \(error.localizedDescription)")
-            showNetworkError()
-            return nil
-        }
-    }
-    
-    func parse(data: Data) -> [SearchResult] {
-        do {
-            let decoder = JSONDecoder()
-            let result = try decoder.decode(ResultArray.self, from:data)
-            return result.results
-        } catch {
-            print("JSON Error: \(error)")
-            return [] }
-    }
-    
-    func showNetworkError() {
-        let alert = UIAlertController(title: "Whoops...",
-                                      message: "There was an error accessing the server." +
-            " Please try again.", preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default,
-                                   handler: nil)
-        present(alert, animated: true, completion: nil)
-        alert.addAction(action)
-    }
-    
-    func createArray()->[String] {
-        let url = creatingURL(searchText: "Matrix")
-        let urlString = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=072c8bdd40fcf3a56da915ff2677d129&language=\(Locale.current.languageCode!)&page=1")!
-        print("URL: '\(url)'")
-        print(Locale.current.languageCode!)
-        let data = performStoreRequest(with: urlString)
-        let dataArray = (parse(data: data!))
-        var stringArray: [String] = []
-        for item in dataArray {
-            stringArray.append("\(item)")
-        }
-        
-        return stringArray
-    }
 }
+

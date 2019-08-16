@@ -31,7 +31,7 @@ class SearchResult:Codable, CustomStringConvertible {
     var video = false
     var vote_average = 0.0
     var description: String {
-        return "\(title)"/*, Year: \(release_date)"[..<release_date.index(release_date.startIndex, offsetBy: 4)])" */
+        return "\(title)" //",  \(release_date[..<release_date.index(release_date.startIndex, offsetBy: 4)])"
     }
     
     /* var name:String {

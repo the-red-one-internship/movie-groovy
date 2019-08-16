@@ -444,11 +444,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="177" height="271"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L8G-p2-SLk">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L8G-p2-SLk">
                                                     <rect key="frame" x="0.0" y="0.0" width="177" height="213"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="213" id="Gcf-Pf-Qde"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Film title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROk-hA-DYo">
-                                                    <rect key="frame" x="0.0" y="223" width="65" height="21"/>
+                                                    <rect key="frame" x="0.0" y="223" width="177" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -456,16 +459,17 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="ROk-hA-DYo" firstAttribute="top" secondItem="L8G-p2-SLk" secondAttribute="bottom" constant="10" id="38Y-Qi-09F"/>
-                                            <constraint firstAttribute="trailing" secondItem="L8G-p2-SLk" secondAttribute="trailing" id="8Bn-Qt-Ozt"/>
+                                            <constraint firstItem="L8G-p2-SLk" firstAttribute="top" secondItem="hhh-h3-LoJ" secondAttribute="top" id="0Cs-Ds-bdb"/>
+                                            <constraint firstItem="ROk-hA-DYo" firstAttribute="top" secondItem="L8G-p2-SLk" secondAttribute="bottom" constant="10" id="DJR-W0-Da0"/>
+                                            <constraint firstAttribute="trailing" secondItem="L8G-p2-SLk" secondAttribute="trailing" id="E5O-D2-VbW"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="ROk-hA-DYo" secondAttribute="bottom" constant="-7" id="MVC-fb-Bsi"/>
-                                            <constraint firstItem="L8G-p2-SLk" firstAttribute="top" secondItem="hhh-h3-LoJ" secondAttribute="top" id="RXb-We-KMO"/>
-                                            <constraint firstItem="L8G-p2-SLk" firstAttribute="leading" secondItem="ROk-hA-DYo" secondAttribute="leading" id="Ye9-RG-SbQ"/>
-                                            <constraint firstItem="L8G-p2-SLk" firstAttribute="leading" secondItem="hhh-h3-LoJ" secondAttribute="leading" id="n3H-L3-imw"/>
+                                            <constraint firstItem="L8G-p2-SLk" firstAttribute="leading" secondItem="hhh-h3-LoJ" secondAttribute="leading" id="XGD-yo-bqr"/>
+                                            <constraint firstItem="L8G-p2-SLk" firstAttribute="trailing" secondItem="ROk-hA-DYo" secondAttribute="trailing" id="ljZ-Wg-vND"/>
+                                            <constraint firstItem="L8G-p2-SLk" firstAttribute="leading" secondItem="ROk-hA-DYo" secondAttribute="leading" id="zjz-aG-Mkj"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="filmPoster" destination="L8G-p2-SLk" id="SU8-l6-YfN"/>
-                                            <outlet property="toolTitle" destination="ROk-hA-DYo" id="ww6-1w-EyT"/>
+                                            <outlet property="filmTitle" destination="ROk-hA-DYo" id="zD9-nW-i6l"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

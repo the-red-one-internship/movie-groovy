@@ -10,8 +10,8 @@ import UIKit
 
 class ToolCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var toolTitle: UILabel!
-    @IBOutlet weak var filmPoster: UIImageView!
     
+    @IBOutlet weak var filmTitle: UILabel!
+    @IBOutlet weak var filmPoster: UIImageView!
     
 }
