@@ -13,6 +13,40 @@ class SettingsViewController: UIViewController {
 
     let transition = TransitionAnimator()
     
+    @IBOutlet weak var loginBTN: UIButton!
+    @IBOutlet weak var changePasswordBTN: UIButton!
+    @IBOutlet weak var exitBTN: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        if Auth.auth().currentUser != nil {
+            loginBTN.isEnabled = false
+            changePasswordBTN.isEnabled = true
+            exitBTN.isEnabled = true
+        } else {
+            loginBTN.isEnabled = true
+            changePasswordBTN.isEnabled = false
+            exitBTN.isEnabled = false
+        }
+    }
+    
+}
+
+// MARK: - Buttons
+extension SettingsViewController {
+    
+    @IBAction func loginButton(_ sender: Any) {
+        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "Auth") as! StartViewController
+        self.present(loginVC, animated: false, completion: nil)
+    }
+    
+    @IBAction func changePasswordButton(_ sender: Any) {
+        let changePasswordViewController = storyboard!.instantiateViewController(withIdentifier: "ChangePasswordViewController") as! ChangePasswordViewController
+        changePasswordViewController.transitioningDelegate = self as! UIViewControllerTransitioningDelegate
+        changePasswordViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        self.present(changePasswordViewController, animated: true, completion: nil)
+    }
     
     @IBAction func exitButton(_ sender: Any) {
         do {
@@ -26,31 +60,6 @@ class SettingsViewController: UIViewController {
         let inital = storyBoard.instantiateInitialViewController()
         UIApplication.shared.keyWindow?.rootViewController = inital
         
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-}
-
-// MARK: - Buttons
-extension SettingsViewController {
-    
-    @IBAction func languageButton(_ sender: Any) {
-        let languageViewController = storyboard!.instantiateViewController(withIdentifier: "LanguageViewController") as! LanguageViewController
-        languageViewController.transitioningDelegate = self as! UIViewControllerTransitioningDelegate
-        languageViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        self.present(languageViewController, animated: true, completion: nil)
-        }
-    
-    @IBAction func changePasswordButton(_ sender: Any) {
-        let changePasswordViewController = storyboard!.instantiateViewController(withIdentifier: "ChangePasswordViewController") as! ChangePasswordViewController
-        changePasswordViewController.transitioningDelegate = self as! UIViewControllerTransitioningDelegate
-        changePasswordViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        self.present(changePasswordViewController, animated: true, completion: nil)
     }
 }
 

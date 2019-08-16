@@ -62,6 +62,7 @@ class ChangePasswordViewController: UIViewController, UIViewControllerTransition
     }
     
     func displayWarningLabel (withText text: String) {
+        self.warrningLabel.alpha = 0
         self.warrningLabel.text = text
         UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: { [weak self] in self?.warrningLabel.alpha = 1}) { [weak self] complete in
             self?.warrningLabel.alpha = 0
