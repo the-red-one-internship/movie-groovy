@@ -16,8 +16,14 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var loginBTN: UIButton!
     @IBOutlet weak var changePasswordBTN: UIButton!
     @IBOutlet weak var exitBTN: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
+        
+        let urlString = "https://pp.userapi.com/c851536/v851536244/3948d/3xmzEE0IxM4.jpg"
+        let urlImage = URL(string: urlString)
+        let imageData = try! Data(contentsOf: urlImage!)
+        
         super.viewDidLoad()
 
         if Auth.auth().currentUser != nil {
@@ -29,6 +35,9 @@ class SettingsViewController: UIViewController {
             changePasswordBTN.isEnabled = false
             exitBTN.isEnabled = false
         }
+        
+        imageView.image = UIImage(data: imageData)
+        
     }
     
 }
