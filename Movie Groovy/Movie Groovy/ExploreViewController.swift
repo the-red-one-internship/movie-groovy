@@ -148,5 +148,12 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
         
         searchController.searchBar.resignFirstResponder()
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController
+        vc?.titl = items[indexPath.row]
+        vc?.movieId = filmsID[indexPath.row]
+        
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
 }
 

@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/admin/Developer/movie-groovy/Movie Groovy/Movie Groovy/MovieDetailViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:Movie Groovy.xcodeproj">
    </FileRef>
    <FileRef

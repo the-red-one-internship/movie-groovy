@@ -34,7 +34,16 @@ class SearchResult:Codable, CustomStringConvertible {
         return "\(title)" //",  \(release_date[..<release_date.index(release_date.startIndex, offsetBy: 4)])"
     }
     
+
     /* var name:String {
         return trackName ?? ""
     }   */
+}
+class MovieDetails: Codable{
+    var overview: String?
+    var original_title: String
+    var tagline: String
+    var revenue: Int
+    var release_date: String
+    var poster_path: String?
 }

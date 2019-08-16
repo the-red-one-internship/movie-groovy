@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 struct requestHandler {
     static func createFilmDataArray(for film: String = "", page number: Int = 1) -> ([String], [Int]) {
         var urlString = URL(string: "")
@@ -18,13 +19,15 @@ struct requestHandler {
             let preUrlString = String(format: "https://api.themoviedb.org/3/search/movie?api_key=072c8bdd40fcf3a56da915ff2677d129&language=\(Locale.current.languageCode!)&page=\(number)&include_adult=false&query=%@", encodedText)
              urlString = URL(string: preUrlString)!
         }
+        
         let data = performStoreRequest(with: urlString!)
-        let dataArray = (parse(data: data!))
+        let dataArray: [SearchResult] = (parse(data: data!))
         var stringArray: [String] = []
         var idArray: [Int] = []
         for item in dataArray {
             idArray.append(item.id)
         }
+        
         for item in dataArray {
             stringArray.append("\(item)")
         }
@@ -50,6 +53,18 @@ struct requestHandler {
         } catch {
             print("JSON Error: \(error)")
             return [] }
+    }
+    
+    static func parse(data: Data) -> MovieDetails? {
+        do {
+            let decoder = JSONDecoder()
+            let result = try decoder.decode(MovieDetails.self, from:data)
+            return result
+        } catch {
+            print("JSON Error: \(error)")
+            return nil
+
+        }
     }
     
 //    func showNetworkError() {
