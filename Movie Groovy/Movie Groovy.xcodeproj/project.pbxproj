@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		84083FD9230A703100C8F059 /* AuthorizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84083FD8230A703100C8F059 /* AuthorizationModel.swift */; };
 		842C4B0623067BD7008BF0EA /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C4B0523067BD7008BF0EA /* RequestHandler.swift */; };
 		84365A2622FC29AF0098D666 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84365A2522FC29AF0098D666 /* AppDelegate.swift */; };
 		84365A2B22FC29AF0098D666 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84365A2922FC29AF0098D666 /* Main.storyboard */; };
@@ -31,7 +30,6 @@
 /* Begin PBXFileReference section */
 		06905FCAA17BF976B1668CE6 /* Pods-Movie Groovy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie Groovy.release.xcconfig"; path = "Target Support Files/Pods-Movie Groovy/Pods-Movie Groovy.release.xcconfig"; sourceTree = "<group>"; };
 		1DB1C294E58A40BFEF203EC7 /* Pods-Movie Groovy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie Groovy.debug.xcconfig"; path = "Target Support Files/Pods-Movie Groovy/Pods-Movie Groovy.debug.xcconfig"; sourceTree = "<group>"; };
-		84083FD8230A703100C8F059 /* AuthorizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModel.swift; sourceTree = "<group>"; };
 		842C4B0523067BD7008BF0EA /* RequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = SOURCE_ROOT; };
 		84365A2222FC29AF0098D666 /* Movie Groovy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie Groovy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84365A2522FC29AF0098D666 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 			children = (
 				84590844230A9B0900E9224A /* Models */,
 				84590845230AB9A000E9224A /* Explore Page */,
-				84083FD8230A703100C8F059 /* AuthorizationModel.swift */,
 				84F63D4723028F5000BC3FC9 /* SettingsViewController.swift */,
 				84F63D492302A7B000BC3FC9 /* StartViewController.swift */,
 				84F63D4D2302AA8300BC3FC9 /* SignUpViewController.swift */,
@@ -292,7 +289,6 @@
 				84590841230A932A00E9224A /* MovieDetailViewController.swift in Sources */,
 				84FA585723040C3900A2258C /* TransitionAnimator.swift in Sources */,
 				84FA586B23044AB400A2258C /* ChangePasswordViewController.swift in Sources */,
-				84083FD9230A703100C8F059 /* AuthorizationModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
