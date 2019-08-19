@@ -8,6 +8,8 @@
 
 import UIKit
 
+// stub
+// mock
 class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -24,7 +26,7 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        requestHandler.shared
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.searchController.searchResultsUpdater = self
@@ -36,7 +38,6 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
         self.searchController.searchBar.sizeToFit()
         self.searchController.searchBar.becomeFirstResponder()
         self.navigationItem.titleView = searchController.searchBar
-        
     }
     
     // MARK: UICollectionViewDataSource
@@ -145,4 +146,38 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }
+
+
+
+protocol DataProvider {
+    func getFriendsList()
+}
+
+class FirebaseDataProvider: DataProvider {
+    func getFriendsList() {
+        ///... REST queries etc.
+    }
+}
+
+class DataProviderMock: DataProvider {
+    func getFriendsList() {
+        
+    }
+}
+
+// FriendsListViewController.swift
+
+// FriendsListViewModel.swift:
+
+class FriendsListViewModel {
+    private let dataProvider: DataProvider
+    
+    init(dataProvider: DataProvider) {
+        self.dataProvider = dataProvider
+    }
+}
+
+let dataProvider = DataProviderMock()
+let viewModel = FriendsListViewModel(dataProvider: dataProvider)
+
 
