@@ -132,8 +132,9 @@
 				84365A2C22FC29B00098D666 /* Assets.xcassets */,
 				84365A2E22FC29B00098D666 /* LaunchScreen.storyboard */,
 			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
+			name = "Supporting Files";
+			path = "Movie Groovy/Supporting Files";
+			sourceTree = SOURCE_ROOT;
 		};
 		84590842230A9AD500E9224A /* Backend */ = {
 			isa = PBXGroup;
