@@ -31,10 +31,15 @@ class SearchResult:Codable, CustomStringConvertible {
     var video = false
     var vote_average = 0.0
     var description: String {
-        return "\(title)"/*, Year: \(release_date)"[..<release_date.index(release_date.startIndex, offsetBy: 4)])" */
+        return "\(title)"
     }
-    
-    /* var name:String {
-        return trackName ?? ""
-    }   */
+}
+
+class MovieDetails: Codable{
+    var overview: String?
+    var original_title: String
+    var tagline: String
+    var revenue: Int
+    var release_date: String
+    var poster_path: String?
 }
