@@ -46,7 +46,7 @@
 		84590840230A932A00E9224A /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		848A2CA522FD75F700CBA048 /* ToolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolCollectionViewCell.swift; sourceTree = "<group>"; };
 		848A2CA722FD761F00CBA048 /* SearchCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionReusableView.swift; sourceTree = "<group>"; };
-		8495C0AC230154F00030BC7A /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		8495C0AC230154F00030BC7A /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchResult.swift; path = ../SearchResult.swift; sourceTree = "<group>"; };
 		84F63D4723028F5000BC3FC9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		84F63D492302A7B000BC3FC9 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		84F63D4B2302A92C00BC3FC9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +110,8 @@
 		84365A2422FC29AF0098D666 /* Movie Groovy */ = {
 			isa = PBXGroup;
 			children = (
+				84590844230A9B0900E9224A /* Models */,
+				84083FD8230A703100C8F059 /* AuthorizationModel.swift */,
 				84590840230A932A00E9224A /* MovieDetailViewController.swift */,
 				84365A2722FC29AF0098D666 /* RootController.swift */,
 				84365A3822FC309C0098D666 /* ExploreViewController.swift */,
@@ -123,11 +125,10 @@
 				84F63D572302FC4000BC3FC9 /* TabBarViewController.swift */,
 				848A2CA522FD75F700CBA048 /* ToolCollectionViewCell.swift */,
 				848A2CA722FD761F00CBA048 /* SearchCollectionReusableView.swift */,
+				84590842230A9AD500E9224A /* Backend */,
 				84365A3722FC2DDD0098D666 /* Supporting Files */,
 				84365A3122FC29B00098D666 /* Info.plist */,
 				84F63D552302B2D700BC3FC9 /* GoogleService-Info.plist */,
-				8495C0AC230154F00030BC7A /* SearchResult.swift */,
-				84083FD8230A703100C8F059 /* AuthorizationModel.swift */,
 			);
 			name = "Movie Groovy";
 			path = "/Users/admin/Documents/Workspace/movie-groovy/Movie Groovy/Movie Groovy";
@@ -138,10 +139,25 @@
 			children = (
 				84365A2522FC29AF0098D666 /* AppDelegate.swift */,
 				84365A2C22FC29B00098D666 /* Assets.xcassets */,
-				842C4B0523067BD7008BF0EA /* RequestHandler.swift */,
 				84365A2E22FC29B00098D666 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84590842230A9AD500E9224A /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				842C4B0523067BD7008BF0EA /* RequestHandler.swift */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
+		84590844230A9B0900E9224A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8495C0AC230154F00030BC7A /* SearchResult.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

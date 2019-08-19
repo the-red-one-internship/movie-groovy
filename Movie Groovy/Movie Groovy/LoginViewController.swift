@@ -21,9 +21,6 @@ class LoginViewController: UIViewController, UITabBarControllerDelegate {
         
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error == nil {
-//                let goToActivity = self.storyboard?.instantiateViewController(withIdentifier: "TabBar") as! TabBarViewController
-//                self.present(goToActivity, animated: false, completion: nil)
-//                self.performSegue(withIdentifier: "loginToHome", sender: self)
                 let tabBarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: TabBarViewController.self)) as! TabBarViewController
                 UIApplication.shared.delegate?.window??.rootViewController = tabBarVC
             } else {
@@ -34,6 +31,7 @@ class LoginViewController: UIViewController, UITabBarControllerDelegate {
                 self.present(alertController, animated: true, completion: nil)
             }
         }
+        
     }
     
     override func viewDidLoad() {
