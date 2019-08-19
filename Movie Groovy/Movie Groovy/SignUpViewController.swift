@@ -10,8 +10,6 @@ import UIKit
 import Firebase
 
 class SignUpViewController: UIViewController {
-    
-    private let model = AuthorizationModel()
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
