@@ -27,18 +27,14 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
         
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        
         self.searchController.searchResultsUpdater = self
         self.searchController.delegate = self
         self.searchController.searchBar.delegate = self
-        
         self.searchController.hidesNavigationBarDuringPresentation = false
         self.searchController.dimsBackgroundDuringPresentation = true
         self.searchController.obscuresBackgroundDuringPresentation = false
         self.searchController.searchBar.sizeToFit()
-        
         self.searchController.searchBar.becomeFirstResponder()
-        
         self.navigationItem.titleView = searchController.searchBar
         
     }
@@ -58,13 +54,9 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! ToolCollectionViewCell
         if searchBar.text == "" && !searchActive {
             cell.filmTitle?.text = items[indexPath.row]
-            //cell.filmPoster?.image =
         } else {
             cell.filmTitle?.text = filtered[indexPath.row]
         }
-        
-        
-        
         return cell
     }
     
@@ -125,8 +117,6 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
             let countryText = item as NSString
             return (countryText.range(of: searchString!, options: NSString.CompareOptions.caseInsensitive).location) != NSNotFound
         })
-        
-        
         self.collectionView.reloadData()
     }
     
@@ -151,8 +141,7 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController
         vc?.titl = items[indexPath.row]
-        vc?.movieId = filmsID[indexPath.row]
-        
+        vc?.movieID = filmsID[indexPath.row]
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }

@@ -9,14 +9,16 @@
 import Foundation
 
 struct requestHandler {
+    static let APIKey: String = "072c8bdd40fcf3a56da915ff2677d129"
+    
     static func createFilmDataArray(for film: String = "", page number: Int = 1) -> ([String], [Int]) {
         var urlString = URL(string: "")
         if film == "" {
-             urlString = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=072c8bdd40fcf3a56da915ff2677d129&language=\(Locale.current.languageCode!)&page=\(number)")!
+             urlString = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)&page=\(number)")!
         } else {
             let encodedText = film.addingPercentEncoding(
                 withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-            let preUrlString = String(format: "https://api.themoviedb.org/3/search/movie?api_key=072c8bdd40fcf3a56da915ff2677d129&language=\(Locale.current.languageCode!)&page=\(number)&include_adult=false&query=%@", encodedText)
+            let preUrlString = String(format: "https://api.themoviedb.org/3/search/movie?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)&page=\(number)&include_adult=false&query=%@", encodedText)
              urlString = URL(string: preUrlString)!
         }
         
@@ -40,7 +42,6 @@ struct requestHandler {
             return try Data(contentsOf: url)
         } catch {
             print("Download Error: \(error.localizedDescription)")
-            //showNetworkError()
             return nil
         }
     }
@@ -67,14 +68,12 @@ struct requestHandler {
         }
     }
     
-//    func showNetworkError() {
-//        let alert = UIAlertController(title: "Whoops...",
-//                                      message: "There was an error accessing the server." +
-//            " Please try again.", preferredStyle: .alert)
-//        let action = UIAlertAction(title: "OK", style: .default,
-//                                   handler: nil)
-//        present(alert, animated: true, completion: nil)
-//        alert.addAction(action)
-//    }
     
+    
+    static func getDetails(for movieID: Int) -> MovieDetails {
+        let urlString = URL(string: "https://api.themoviedb.org/3/movie/\(movieID)?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)")!
+        let data = requestHandler.performStoreRequest(with: urlString)
+        return requestHandler.parse(data: data!)!
+        
+    }
 }

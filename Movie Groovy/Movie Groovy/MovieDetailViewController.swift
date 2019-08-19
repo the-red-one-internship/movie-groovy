@@ -11,29 +11,24 @@ class MovieDetailViewController: UIViewController {
 
     @IBOutlet weak var movieLabel: UILabel!
     @IBOutlet weak var movieOverview: UILabel!
+    @IBOutlet weak var posterView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         movieLabel.text = titl
-        let urlString = URL(string: "https://api.themoviedb.org/3/movie/\(movieId)?api_key=072c8bdd40fcf3a56da915ff2677d129&language=\(Locale.current.languageCode!)")!
-        let data = requestHandler.performStoreRequest(with: urlString)
-        let movieDetails: MovieDetails? = requestHandler.parse(data: data!)
-        movieOverview.text = movieDetails!.overview
+        let movieDetails: MovieDetails = requestHandler.getDetails(for: movieID)
+        movieOverview.text = movieDetails.overview
+        if let imagePath = movieDetails.poster_path {
+           let imageURL = URL(string: "https://image.tmdb.org/t/p/w154\(imagePath)")
+            DispatchQueue.global().async {
+                let data = try? Data(contentsOf: imageURL!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+                DispatchQueue.main.async {
+                    self.posterView.image = UIImage(data: data!)
+                }
+            }
+        }
         
-        
-        // Do any additional setup after loading the view.
     }
     
     var titl: String = ""
-    var movieId: Int = 0
-    //var movie: SearchResult = SearchResult()
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    var movieID: Int = 0
 }
