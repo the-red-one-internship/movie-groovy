@@ -600,7 +600,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7I7-RT-pH2">
-                                <rect key="frame" x="183.5" y="575" width="47" height="30"/>
+                                <rect key="frame" x="183.5" y="531" width="47" height="30"/>
                                 <state key="normal" title="Sign in"/>
                                 <connections>
                                     <action selector="loginAction:" destination="SjU-Ut-bOY" eventType="touchUpInside" id="XsL-nT-FJ1"/>
@@ -759,7 +759,7 @@
                                 <state key="normal" title="Sign up"/>
                                 <connections>
                                     <action selector="signUpAction:" destination="tQl-D9-Oqk" eventType="touchUpInside" id="MHs-2A-xNE"/>
-                                    <segue destination="SjU-Ut-bOY" kind="show" identifier="signupToLogin" id="Soo-ca-fFr"/>
+                                    <segue destination="SjU-Ut-bOY" kind="presentation" identifier="signupToLogin" id="Soo-ca-fFr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -813,6 +813,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qxu-YC-zAS"/>
+        <segue reference="Soo-ca-fFr"/>
     </inferredMetricsTieBreakers>
 </document>
