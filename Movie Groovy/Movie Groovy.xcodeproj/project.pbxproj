@@ -148,8 +148,9 @@
 			children = (
 				8495C0AC230154F00030BC7A /* SearchResult.swift */,
 			);
-			path = Models;
-			sourceTree = "<group>";
+			name = Models;
+			path = "Movie Groovy/Models";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
