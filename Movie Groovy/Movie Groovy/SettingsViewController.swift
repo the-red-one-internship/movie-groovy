@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import Firebase
 
 class SettingsViewController: UIViewController {
-
-    let transition = TransitionAnimator()
+    
+    private let profileManager = ProfileManager()
+    private let transition = TransitionAnimator()
     
     @IBOutlet weak var loginBTN: UIButton!
     @IBOutlet weak var changePasswordBTN: UIButton!
@@ -26,7 +26,7 @@ class SettingsViewController: UIViewController {
         
         super.viewDidLoad()
 
-        if Auth.auth().currentUser != nil {
+        if profileManager.userSession() {
             loginBTN.isEnabled = false
             changePasswordBTN.isEnabled = true
             exitBTN.isEnabled = true
@@ -58,12 +58,7 @@ extension SettingsViewController {
     }
     
     @IBAction func exitButton(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-        }
-        catch let signOutError as NSError {
-            print("Error signing out: %@", signOutError)
-        }
+        self.profileManager.signOut()
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let inital = storyBoard.instantiateInitialViewController()
