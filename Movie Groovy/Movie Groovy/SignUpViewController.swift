@@ -7,38 +7,19 @@
 //
 
 import UIKit
-import Firebase
 
 class SignUpViewController: UIViewController {
+    
+    private let profileManager = ProfileManager()
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var passwordConfirm: UITextField!
+    @IBOutlet weak var confirmPassword: UITextField!
     
     @IBAction func signUpAction(_ sender: Any) {
-        guard let email = email.text, let password = password.text, let passwordConfirm = passwordConfirm.text else {return}
+        guard let email = email.text, let password = password.text, let confirmPassword = confirmPassword.text else {return}
         
-        if password != passwordConfirm {
-            let alertController = UIAlertController(title: "Password Incorrect", message: "Please, re-type password", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            
-            alertController.addAction(defaultAction)
-            self.present(alertController, animated: true, completion: nil)
-            
-        } else {
-            Auth.auth().createUser(withEmail: email, password: password) {(user, error) in
-                if error == nil {
-                    print("redirect")
-                    self.performSegue(withIdentifier: "signupToLogin", sender: self)
-                } else {
-                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    
-                    alertController.addAction(defaultAction)
-                    self.present(alertController, animated: true, completion: nil)
-                }
-            }
-        }
+        profileManager.signUp(email: email, password: password, confirmPassword: confirmPassword)
         
     }
     

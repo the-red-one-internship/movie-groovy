@@ -14,6 +14,7 @@
 		84365A3022FC29B00098D666 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84365A2E22FC29B00098D666 /* LaunchScreen.storyboard */; };
 		84365A3922FC309C0098D666 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84365A3822FC309C0098D666 /* ExploreViewController.swift */; };
 		84590841230A932A00E9224A /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84590840230A932A00E9224A /* MovieDetailViewController.swift */; };
+		84590847230ACEE100E9224A /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84590846230ACEE100E9224A /* ProfileManager.swift */; };
 		848A2CA622FD75F700CBA048 /* ToolCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A2CA522FD75F700CBA048 /* ToolCollectionViewCell.swift */; };
 		8495C0AD230154F00030BC7A /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495C0AC230154F00030BC7A /* SearchResult.swift */; };
 		84F63D4823028F5000BC3FC9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F63D4723028F5000BC3FC9 /* SettingsViewController.swift */; };
@@ -22,6 +23,8 @@
 		84F63D4E2302AA8300BC3FC9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F63D4D2302AA8300BC3FC9 /* SignUpViewController.swift */; };
 		84F63D562302B2D700BC3FC9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84F63D552302B2D700BC3FC9 /* GoogleService-Info.plist */; };
 		84F63D582302FC4000BC3FC9 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F63D572302FC4000BC3FC9 /* TabBarViewController.swift */; };
+		84F85018230BC9AF00D99805 /* ExploreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F85017230BC9AF00D99805 /* ExploreTableViewController.swift */; };
+		84F8501A230BCA7700D99805 /* ExploreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F85019230BCA7700D99805 /* ExploreViewCell.swift */; };
 		84FA585723040C3900A2258C /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA585623040C3800A2258C /* TransitionAnimator.swift */; };
 		84FA586B23044AB400A2258C /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA586A23044AB400A2258C /* ChangePasswordViewController.swift */; };
 		B138E8B830BEED9CD0B61533 /* Pods_Movie_Groovy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFFCCAC7E69FFD5B5751DA6 /* Pods_Movie_Groovy.framework */; };
@@ -39,6 +42,7 @@
 		84365A3122FC29B00098D666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84365A3822FC309C0098D666 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExploreViewController.swift; path = "Movie Groovy/ExploreViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84590840230A932A00E9224A /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MovieDetailViewController.swift; path = "Movie Groovy/MovieDetailViewController.swift"; sourceTree = SOURCE_ROOT; };
+		84590846230ACEE100E9224A /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
 		848A2CA522FD75F700CBA048 /* ToolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolCollectionViewCell.swift; path = "Movie Groovy/ToolCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		8495C0AC230154F00030BC7A /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		84F63D4723028F5000BC3FC9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = "Movie Groovy/SettingsViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -47,6 +51,8 @@
 		84F63D4D2302AA8300BC3FC9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "Movie Groovy/SignUpViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84F63D552302B2D700BC3FC9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Movie Groovy/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		84F63D572302FC4000BC3FC9 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = "Movie Groovy/TabBarViewController.swift"; sourceTree = SOURCE_ROOT; };
+		84F85017230BC9AF00D99805 /* ExploreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewController.swift; sourceTree = "<group>"; };
+		84F85019230BCA7700D99805 /* ExploreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewCell.swift; sourceTree = "<group>"; };
 		84FA585623040C3800A2258C /* TransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransitionAnimator.swift; path = "Movie Groovy/TransitionAnimator.swift"; sourceTree = SOURCE_ROOT; };
 		84FA585823040E8800A2258C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		84FA585923040E8800A2258C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -113,6 +119,8 @@
 				84F63D4D2302AA8300BC3FC9 /* SignUpViewController.swift */,
 				84F63D4B2302A92C00BC3FC9 /* LoginViewController.swift */,
 				84365A2922FC29AF0098D666 /* Main.storyboard */,
+				84F85019230BCA7700D99805 /* ExploreViewCell.swift */,
+				84F85017230BC9AF00D99805 /* ExploreTableViewController.swift */,
 				84FA586A23044AB400A2258C /* ChangePasswordViewController.swift */,
 				84FA585623040C3800A2258C /* TransitionAnimator.swift */,
 				84F63D572302FC4000BC3FC9 /* TabBarViewController.swift */,
@@ -139,6 +147,7 @@
 		84590842230A9AD500E9224A /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				84590846230ACEE100E9224A /* ProfileManager.swift */,
 				842C4B0523067BD7008BF0EA /* RequestHandler.swift */,
 			);
 			name = Backend;
@@ -271,14 +280,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F85018230BC9AF00D99805 /* ExploreTableViewController.swift in Sources */,
 				84F63D4C2302A92C00BC3FC9 /* LoginViewController.swift in Sources */,
 				8495C0AD230154F00030BC7A /* SearchResult.swift in Sources */,
 				84F63D4A2302A7B000BC3FC9 /* StartViewController.swift in Sources */,
+				84590847230ACEE100E9224A /* ProfileManager.swift in Sources */,
 				84365A3922FC309C0098D666 /* ExploreViewController.swift in Sources */,
 				84F63D582302FC4000BC3FC9 /* TabBarViewController.swift in Sources */,
 				84F63D4E2302AA8300BC3FC9 /* SignUpViewController.swift in Sources */,
 				84F63D4823028F5000BC3FC9 /* SettingsViewController.swift in Sources */,
 				848A2CA622FD75F700CBA048 /* ToolCollectionViewCell.swift in Sources */,
+				84F8501A230BCA7700D99805 /* ExploreViewCell.swift in Sources */,
 				842C4B0623067BD7008BF0EA /* RequestHandler.swift in Sources */,
 				84365A2622FC29AF0098D666 /* AppDelegate.swift in Sources */,
 				84590841230A932A00E9224A /* MovieDetailViewController.swift in Sources */,

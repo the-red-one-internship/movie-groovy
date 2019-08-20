@@ -10,6 +10,15 @@ import UIKit
 
 class ExploreViewCell: UITableViewCell {
 
+    @IBOutlet weak var filmTitle: UILabel!
+    @IBOutlet weak var filmPoster: UIImageView!
+    @IBOutlet weak var alternativeFilmTitle: UILabel!
+    @IBOutlet weak var year: UILabel!
+    @IBOutlet weak var ganres: UILabel!
+    @IBOutlet weak var raiting: UILabel!
+    @IBOutlet weak var country: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
