@@ -36,10 +36,10 @@ class SearchResult:Codable, CustomStringConvertible {
 }
 
 class MovieDetails: Codable{
-    var overview: String?
-    var original_title: String
-    var tagline: String
-    var revenue: Int
-    var release_date: String
-    var poster_path: String?
+    var overview: String? = nil
+    var original_title: String = ""
+    var tagline: String = ""
+    var revenue: Int = 0
+    var release_date: String = ""
+    var poster_path: String? = nil
 }
