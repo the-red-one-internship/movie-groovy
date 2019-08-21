@@ -20,18 +20,20 @@ import Foundation
 struct requestHandler {
    // private(set) var shared: requestHandler
     
-    static let APIKey: String = "072c8bdd40fcf3a56da915ff2677d129"
+    static  let APIKey: String = "072c8bdd40fcf3a56da915ff2677d129"
+    static  let URLBase = "https://api.themoviedb.org/3/"
+    
     static var authStatus: String?
     
     static func createFilmDataArray(for film: String = "", page number: Int = 1) -> ([String], [Int]) {
         var urlString = URL(string: "")
         authStatus = ""
         if film == "" {
-             urlString = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)&page=\(number)")!
+             urlString = URL(string: URLBase + "movie/popular?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)&page=\(number)")!
         } else {
             let encodedText = film.addingPercentEncoding(
                 withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-            let preUrlString = String(format: "https://api.themoviedb.org/3/search/movie?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)&page=\(number)&include_adult=false&query=%@", encodedText)
+            let preUrlString = String(format: URLBase + "search/movie?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)&page=\(number)&include_adult=false&query=%@", encodedText)
              urlString = URL(string: preUrlString)!
         }
         
@@ -82,7 +84,7 @@ struct requestHandler {
     }
     
     static func getDetails(for movieID: Int) -> MovieDetails {
-        let urlString = URL(string: "https://api.themoviedb.org/3/movie/\(movieID)?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)")!
+        let urlString = URL(string: URLBase + "movie/\(movieID)?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)")!
         let data = requestHandler.performStoreRequest(with: urlString)
         return requestHandler.parse(data: data!)!
     }
