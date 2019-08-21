@@ -8,10 +8,17 @@
 import UIKit
 
 class MovieDetailViewController: UIViewController {
+    
+    private let dataManager = DataManager()
 
     @IBOutlet weak var movieLabel: UILabel!
     @IBOutlet weak var movieOverview: UILabel!
     @IBOutlet weak var posterView: UIImageView!
+    
+    @IBAction func addToWatchlist(_ sender: Any) {
+        dataManager.saveUploadedFilesSet(filename: ["movie1": ["id":1]])
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
