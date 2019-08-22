@@ -10,8 +10,15 @@ import UIKit
 
 class ExploreTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let films = ["spider man 1", "spider man 2", "spider man 3", "not spider man"]
-    let filmPoster = try! Data(contentsOf: URL(string: "https://upload.wikimedia.org/wikipedia/ru/thumb/1/1f/Spiderman2.jpg/267px-Spiderman2.jpg")!)
+    let genreDict = requestHandler.getGenreDict()
+    
+    let filmDataArray = requestHandler.createFilmDataArray()
+    lazy var films = filmDataArray.titles
+    lazy var originalTitleArr = filmDataArray.originalTitles
+    lazy var filmPosterPaths = filmDataArray.posterPaths
+    lazy var voteAverageArr = filmDataArray.voteAverage
+    lazy var releaseDates = filmDataArray.releaseDate
+    lazy var genresArr = filmDataArray.genres
     
     let cellReuseIdentifier = "cell"
 
@@ -34,8 +41,26 @@ class ExploreTableViewController: UIViewController, UITableViewDelegate, UITable
         let cell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! ExploreViewCell
         
         cell.filmTitle.text = self.films[indexPath.row]
-        cell.filmPoster.image = UIImage(data: filmPoster)
-        
+        cell.raiting.text = self.voteAverageArr[indexPath.row]
+        let string = self.releaseDates[indexPath.row]
+        let index = string.index(string.startIndex, offsetBy: 4)
+        cell.year.text = String(string[..<index])
+        cell.alternativeFilmTitle.text = self.originalTitleArr[indexPath.row] ?? nil
+        let genreIDs = self.genresArr[indexPath.row]
+        var genresString = ""
+        for item in genreIDs{
+            genresString += genreDict[item]! + " "
+        }
+        cell.ganres.text = genresString
+        if let posterPath = filmPosterPaths[indexPath.row]{
+            let imageURL = URL(string: "https://image.tmdb.org/t/p/w154\(posterPath)")
+                DispatchQueue.global().async {
+                    let data = try? Data(contentsOf: imageURL!)
+                    DispatchQueue.main.async {
+                        cell.filmPoster.image = UIImage(data: data!)
+                    }
+                }
+            }
         return cell
     }
 
