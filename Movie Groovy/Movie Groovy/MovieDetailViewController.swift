@@ -13,6 +13,10 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var movieOverview: UILabel!
     @IBOutlet weak var posterView: UIImageView!
     
+    @IBAction func addToWatchlist(_ sender: Any) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         startLoad()
