@@ -22,7 +22,7 @@ class SearchResult:Codable, CustomStringConvertible {
     var release_date: String = ""
     var genre_ids: [Int] = []
     var id = 0
-    var original_Title: String? = ""
+    var original_title: String? = ""
     var original_language: String = ""
     var title: String = ""
     var backdrop_path: String? = ""
@@ -35,11 +35,20 @@ class SearchResult:Codable, CustomStringConvertible {
     }
 }
 
-class MovieDetails: Codable{
+struct MovieDetails: Codable{
     var overview: String? = nil
     var original_title: String = ""
     var tagline: String = ""
     var revenue: Int = 0
     var release_date: String = ""
     var poster_path: String? = nil
+}
+
+class Genre: Codable {
+    var id: Int
+    var name: String
+}
+
+class Genres: Codable{
+    var genres: [Genre]
 }
