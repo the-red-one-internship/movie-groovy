@@ -22,7 +22,7 @@ class MovieDetailViewController: UIViewController {
     var titl: String = ""
     var movieID: Int = 0
     func startLoad() {
-        let url = URL(string: requestHandler.URLBase + "movie/\(self.movieID)?api_key=\(requestHandler.APIKey)&language=\(Locale.current.languageCode!)")!
+        let url = URL(string: Network.URLBase + "movie/\(self.movieID)?api_key=\(Network.APIKey)&language=\(Locale.current.languageCode!)")!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 print(error)
@@ -36,7 +36,7 @@ class MovieDetailViewController: UIViewController {
             }
             
             if  let data = data {
-                    let movieDetails = requestHandler.parse(data: data)!
+                    let movieDetails = Network.parse(data: data)!
                     DispatchQueue.main.async {
                         self.movieOverview.text = movieDetails.overview
                     }

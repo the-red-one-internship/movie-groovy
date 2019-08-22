@@ -15,7 +15,7 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
    
-    var filmDataArray = requestHandler.createFilmDataArray()
+    var filmDataArray = Network.createFilmDataArray()
     lazy var items = filmDataArray.0
     lazy var filmsID = filmDataArray.1
     

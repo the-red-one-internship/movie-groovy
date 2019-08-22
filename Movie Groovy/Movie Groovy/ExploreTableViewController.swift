@@ -10,9 +10,9 @@ import UIKit
 
 class ExploreTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let genreDict = requestHandler.getGenreDict()
+    let genreDict = Network.getGenreDict()
     
-    let filmDataArray = requestHandler.createFilmDataArray()
+    let filmDataArray = Network.createFilmDataArray()
     lazy var films = filmDataArray.titles
     lazy var originalTitleArr = filmDataArray.originalTitles
     lazy var filmPosterPaths = filmDataArray.posterPaths

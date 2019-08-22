@@ -19,7 +19,7 @@
 
 import Foundation
 
-struct requestHandler {
+struct Network {
    // private(set) var shared: requestHandler
     
     static  let APIKey: String = "072c8bdd40fcf3a56da915ff2677d129"
@@ -105,13 +105,13 @@ struct requestHandler {
     
     static func getDetails(for movieID: Int) -> MovieDetails {
         let urlString = URL(string: URLBase + "movie/\(movieID)?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)")!
-        let data = requestHandler.performStoreRequest(with: urlString)
-        return requestHandler.parse(data: data!)!
+        let data = Network.performStoreRequest(with: urlString)
+        return Network.parse(data: data!)!
     }
     
     static func getGenreDict() -> [Int: String] {
         let url = URL(string: self.URLBase + "genre/movie/list?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)")!
-        let data = requestHandler.performStoreRequest(with: url)
+        let data = Network.performStoreRequest(with: url)
         let genreArr: [Genre] = parse(data: data!)
         let myDictionary = genreArr.reduce([Int: String]()) { (dict, array) -> [Int: String] in
             var dict = dict
