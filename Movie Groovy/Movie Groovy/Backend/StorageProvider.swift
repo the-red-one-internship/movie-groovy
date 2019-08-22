@@ -7,3 +7,12 @@
 
 import Foundation
 import Firebase
+
+private let storage = Storage.storage(url: "gs://movie-groovy-420.appspot.com/")
+
+class StorageProvider {
+    let storageRef = storage.reference()
+}
+
+//SnapshotListener
+//Access data offline
