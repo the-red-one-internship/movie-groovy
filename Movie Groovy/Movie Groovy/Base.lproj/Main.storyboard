@@ -84,75 +84,6 @@
             </objects>
             <point key="canvasLocation" x="330" y="-933"/>
         </scene>
-        <!--Watchlist-->
-        <scene sceneID="YFX-LA-h5T">
-            <objects>
-                <viewController id="b5V-Lk-Ka5" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Fzw-QD-e5b">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="P77-k0-UWX">
-                                <rect key="frame" x="20" y="128" width="374" height="665"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DUw-21-wgU">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8uT-vX-dCK">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" placeholder="Enter movie title" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dML-Zz-Jlk">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="YKW-bA-Rle"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="b5V-Lk-Ka5" id="NI1-rX-x2o"/>
-                                </connections>
-                            </searchBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="P77-k0-UWX" firstAttribute="top" secondItem="dML-Zz-Jlk" secondAttribute="bottom" constant="40" id="4oW-e7-lap"/>
-                            <constraint firstItem="dML-Zz-Jlk" firstAttribute="centerX" secondItem="P77-k0-UWX" secondAttribute="centerX" id="9lx-51-m7j"/>
-                            <constraint firstItem="dML-Zz-Jlk" firstAttribute="leading" secondItem="Fzw-QD-e5b" secondAttribute="leading" id="BF9-1D-wwE"/>
-                            <constraint firstItem="dML-Zz-Jlk" firstAttribute="top" secondItem="MOo-8S-bcb" secondAttribute="top" id="G7v-UD-RuH"/>
-                            <constraint firstItem="P77-k0-UWX" firstAttribute="leading" secondItem="Fzw-QD-e5b" secondAttribute="leadingMargin" id="Hni-lD-Vgd"/>
-                            <constraint firstItem="MOo-8S-bcb" firstAttribute="bottom" secondItem="P77-k0-UWX" secondAttribute="bottom" constant="20" id="MLy-q5-NuE"/>
-                            <constraint firstAttribute="trailing" secondItem="dML-Zz-Jlk" secondAttribute="trailing" id="dMi-Ci-avi"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="MOo-8S-bcb"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Watchlist" id="gIg-yx-p05"/>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="Tva-2s-g4a" id="jFH-XS-iU1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sb8-vP-daP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="Tva-2s-g4a">
-                    <connections>
-                        <outlet property="delegate" destination="b5V-Lk-Ka5" id="raN-fw-yZT"/>
-                        <outlet property="searchBar" destination="dML-Zz-Jlk" id="QyV-ZY-UxX"/>
-                        <outlet property="searchContentsController" destination="b5V-Lk-Ka5" id="ONu-hw-jKB"/>
-                        <outlet property="searchResultsDataSource" destination="b5V-Lk-Ka5" id="5qu-Sp-1Yy"/>
-                        <outlet property="searchResultsDelegate" destination="b5V-Lk-Ka5" id="QqY-6L-rtf"/>
-                    </connections>
-                </searchDisplayController>
-            </objects>
-            <point key="canvasLocation" x="3675" y="-933"/>
-        </scene>
         <!--Settings-->
         <scene sceneID="vI2-1D-ydN">
             <objects>
@@ -444,6 +375,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mz0-tO-qah" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4402.898550724638" y="-1660.0446428571429"/>
+        </scene>
+        <!--Watchlist-->
+        <scene sceneID="KcF-4Q-Zm0">
+            <objects>
+                <tableViewController storyboardIdentifier="Watchlist" title="Watchlist" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Gq0-L4-7zf" customClass="WatchlistTableViewController" customModule="Movie_Groovy" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MPZ-ix-fwA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WatchlistCell" id="rqR-o3-WIr">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rqR-o3-WIr" id="CFl-Ku-YRW">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Gq0-L4-7zf" id="dtl-qi-tql"/>
+                            <outlet property="delegate" destination="Gq0-L4-7zf" id="wCX-o8-yc0"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="DKR-eV-dpJ"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dF7-uU-kIu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3688" y="-933"/>
         </scene>
         <!--Change Password View Controller-->
         <scene sceneID="lP5-zr-jKq">
@@ -797,9 +758,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="gE9-5G-V0M" kind="relationship" relationship="viewControllers" id="vI6-xf-CAZ"/>
-                        <segue destination="b5V-Lk-Ka5" kind="relationship" relationship="viewControllers" id="L3j-0V-GR3"/>
                         <segue destination="Xnf-T6-8Lp" kind="relationship" relationship="viewControllers" id="P8y-E0-LKX"/>
                         <segue destination="2GO-7I-2pf" kind="relationship" relationship="viewControllers" id="qD1-Li-RHs"/>
+                        <segue destination="Gq0-L4-7zf" kind="relationship" relationship="viewControllers" id="f8V-gx-hyU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFG-BI-KZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
