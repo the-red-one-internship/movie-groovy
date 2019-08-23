@@ -31,7 +31,7 @@ struct Network {
         var urlString = URL(string: "")
         authStatus = ""
         if film == "" {
-             urlString = URL(string: URLBase + "movie/popular?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)&page=\(number)")!
+             urlString = URL(string: self.URLBase + "movie/popular?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)&page=\(number)")!
         } else {
             let encodedText = film.addingPercentEncoding(
                 withAllowedCharacters: CharacterSet.urlQueryAllowed)!
@@ -119,6 +119,53 @@ struct Network {
             return dict
         }
         return myDictionary
-        
     }
+    static func send(_ request: URLRequest,
+              completion: @escaping (Result<Data, Error>)->Void) {
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            let result: Result<Data, Error>
+            if let error = error {
+                // First, check if the network just returned an error
+                result = .failure(error)
+            } else { let data = data
+                result = .success(data!)
+            }
+            DispatchQueue.main.async {
+                completion (result)
+            }
+        }
+        task.resume()
+    }
+
+//    static func updateFilmData(ref: MovieData ){
+//        let url = URL(string: self.URLBase + "movie/popular?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)")!
+//        let request = URLRequest(url: url)
+//            self.send(request){ response in
+//                switch response{
+//                case .success( let data):
+//                    let dataArray: [SearchResult] = parse(data: data)
+//                    var titleArray: [String] = []
+//                    var idArray: [Int] = []
+//                    var posterPathArray: [String?] = []
+//                    var originalTitleArray:[String?] = []
+//                    var voteAverageArr: [String] = []
+//                    var dateArr: [String] = []
+//                    var genreArr: [[Int]] = []
+//                    for item in dataArray {
+//                        idArray.append(item.id)
+//                        originalTitleArray.append(item.original_title)
+//                        titleArray.append("\(item)")
+//                        posterPathArray.append(item.poster_path)
+//                        voteAverageArr.append(String(item.vote_average))
+//                        dateArr.append(item.release_date)
+//                        genreArr.append(item.genre_ids)
+//                    }
+//                    ref = MovieData(titles: <#T##[String]#>, ids: <#T##[Int]#>, posterPaths: <#T##[String?]#>, originalTitles: <#T##[String?]#>, voteAverage: <#T##[String]#>, releaseDate: <#T##[String]#>, genres: <#T##[[Int]]#>)
+//                    //self.movieOverview.text = movieDetails.overview
+//                case .failure(let error):
+//                    print(error)
+//                }
+//        }
+//
+//    }
 }

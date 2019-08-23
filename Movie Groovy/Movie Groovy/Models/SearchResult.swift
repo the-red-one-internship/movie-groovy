@@ -52,3 +52,13 @@ class Genre: Codable {
 class Genres: Codable{
     var genres: [Genre]
 }
+
+struct MovieData {
+    var titles: [String]
+    var ids: [Int]
+    var posterPaths: [String?]
+    var originalTitles: [String?]
+    var voteAverage: [String]
+    var releaseDate: [String]
+    var genres: [[Int]]
+}
