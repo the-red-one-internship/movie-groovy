@@ -10,9 +10,9 @@ import UIKit
 
 class ExploreTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let genreDict = requestHandler.getGenreDict()
+    let genreDict = Network.getGenreDict()
     
-    let filmDataArray = requestHandler.createFilmDataArray()
+    let filmDataArray = Network.createFilmDataArray() /*(titles: [String], ids: [Int], posterPaths: [String?], originalTitles: [String?], voteAverage: [String], releaseDate: [String], genres: [[Int]]) = ([], [] ,[], [], [], [], [])*/ //Network.createFilmDataArray()
     lazy var films = filmDataArray.titles
     lazy var originalTitleArr = filmDataArray.originalTitles
     lazy var filmPosterPaths = filmDataArray.posterPaths
@@ -27,6 +27,18 @@ class ExploreTableViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//
+//        let url = URL(string: Network.URLBase + "movie/\(self.movieID)?api_key=\(Network.APIKey)&language=\(Locale.current.languageCode!)")!
+//        let request = URLRequest(url: url)
+//        Network.send(request){ response in
+//            switch response{
+//            case .success( let data):
+//                let movieDetails: MovieDetails = Network.parse(data: data)!
+//                self.movieOverview.text = movieDetails.overview
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
         
         self.tableView.rowHeight = 200
         self.tableView.delegate = self
