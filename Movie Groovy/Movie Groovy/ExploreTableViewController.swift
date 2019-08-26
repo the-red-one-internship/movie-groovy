@@ -10,15 +10,36 @@ import UIKit
 
 class ExploreTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let genreDict = Network.getGenreDict()
+    var movieData: MovieDataProvider = Network()
     
-    let filmDataArray = Network.createFilmDataArray() /*(titles: [String], ids: [Int], posterPaths: [String?], originalTitles: [String?], voteAverage: [String], releaseDate: [String], genres: [[Int]]) = ([], [] ,[], [], [], [], [])*/ //Network.createFilmDataArray()
-    lazy var films = filmDataArray.titles
-    lazy var originalTitleArr = filmDataArray.originalTitles
-    lazy var filmPosterPaths = filmDataArray.posterPaths
-    lazy var voteAverageArr = filmDataArray.voteAverage
-    lazy var releaseDates = filmDataArray.releaseDate
-    lazy var genresArr = filmDataArray.genres
+    var genreDict: [Int: String] = [:] {
+        willSet{
+            movieData.getMovieData(){
+                [weak self] results in
+                self?.movieDataArr = results
+            }
+        }
+    }
+    var movieDataArr: [SearchResult] = [] {
+        willSet{
+            for film in newValue{
+                films.append(film.title)
+                originalTitleArr.append(film.original_title)
+                filmPosterPaths.append(film.poster_path)
+                voteAverageArr.append(String(film.vote_average))
+                releaseDates.append(film.release_date)
+                genresArr.append(film.genre_ids)
+            }
+            self.tableView.reloadData()
+        }
+    }
+
+    var films = [String]()
+    var originalTitleArr = [String?]()
+    var filmPosterPaths = [String?]()
+    var voteAverageArr = [String]()
+    var releaseDates = [String]()
+    var genresArr = [[Int]]()
     
     let cellReuseIdentifier = "cell"
 
@@ -27,19 +48,11 @@ class ExploreTableViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//
-//        let url = URL(string: Network.URLBase + "movie/\(self.movieID)?api_key=\(Network.APIKey)&language=\(Locale.current.languageCode!)")!
-//        let request = URLRequest(url: url)
-//        Network.send(request){ response in
-//            switch response{
-//            case .success( let data):
-//                let movieDetails: MovieDetails = Network.parse(data: data)!
-//                self.movieOverview.text = movieDetails.overview
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-        
+        movieData.getGenreDict(){
+            [weak self] genreDictionary in
+            self?.genreDict = genreDictionary
+        }
+
         self.tableView.rowHeight = 200
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -52,6 +65,12 @@ class ExploreTableViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! ExploreViewCell
         
+        if let url = self.filmPosterPaths[indexPath.row]{
+            movieData.getPosterImage(from: url){
+                imageData in
+                cell.filmPoster.image = UIImage(data: imageData)
+            }
+        }
         cell.filmTitle.text = self.films[indexPath.row]
         cell.raiting.text = self.voteAverageArr[indexPath.row]
         let string = self.releaseDates[indexPath.row]
@@ -64,15 +83,7 @@ class ExploreTableViewController: UIViewController, UITableViewDelegate, UITable
             genresString += genreDict[item]! + " "
         }
         cell.ganres.text = genresString
-        if let posterPath = filmPosterPaths[indexPath.row]{
-            let imageURL = URL(string: "https://image.tmdb.org/t/p/w154\(posterPath)")
-                DispatchQueue.global().async {
-                    let data = try? Data(contentsOf: imageURL!)
-                    DispatchQueue.main.async {
-                        cell.filmPoster.image = UIImage(data: data!)
-                    }
-                }
-            }
+
         return cell
     }
 
