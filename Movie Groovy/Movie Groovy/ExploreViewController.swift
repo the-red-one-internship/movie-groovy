@@ -141,7 +141,7 @@ class ExploreViewController: UIViewController, UISearchBarDelegate, UISearchCont
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController
-        vc?.titl = items[indexPath.row]
+        vc?.movieTitle = items[indexPath.row]
         vc?.movieID = filmsID[indexPath.row]
         self.navigationController?.pushViewController(vc!, animated: true)
     }

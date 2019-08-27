@@ -19,28 +19,34 @@
 
 import Foundation
 
+protocol MovieDataProvider {
+    func getMovieDetails(for movieID: Int, success: @escaping (MovieDetails)->Void)
+    func getPosterImage(from path: String, success: @escaping (Data)->Void)
+    func getGenreDict(success: @escaping ([Int: String])->Void)
+    func getMovieData(success: @escaping ([SearchResult])->Void)
+}
+
 struct Network {
-   // private(set) var shared: requestHandler
+ 
+    private let APIKey: String = "072c8bdd40fcf3a56da915ff2677d129"
+    private let URLBase = "https://api.themoviedb.org/3/"
     
-    static  let APIKey: String = "072c8bdd40fcf3a56da915ff2677d129"
-    static  let URLBase = "https://api.themoviedb.org/3/"
-    
-    static var authStatus: String?
+    private var authStatus: String?
     
     static func createFilmDataArray(for film: String = "", page number: Int = 1) -> (titles: [String], ids: [Int], posterPaths: [String?], originalTitles: [String?], voteAverage: [String], releaseDate: [String], genres: [[Int]]) {
         var urlString = URL(string: "")
-        authStatus = ""
+        //authStatus = ""
         if film == "" {
-             urlString = URL(string: self.URLBase + "movie/popular?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)&page=\(number)")!
+             urlString = URL(string: "https://api.themoviedb.org/3/" + "movie/popular?api_key=072c8bdd40fcf3a56da915ff2677d129&language=\(Locale.current.languageCode!)&page=\(number)")!
         } else {
             let encodedText = film.addingPercentEncoding(
                 withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-            let preUrlString = String(format: URLBase + "search/movie?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)&page=\(number)&include_adult=false&query=%@", encodedText)
+            let preUrlString = String(format: "https://api.themoviedb.org/3/" + "search/movie?api_key=072c8bdd40fcf3a56da915ff2677d129&language=\(Locale.current.languageCode!)&page=\(number)&include_adult=false&query=%@", encodedText)
              urlString = URL(string: preUrlString)!
         }
-        
+
         let data = self.performStoreRequest(with: urlString!)
-        let dataArray: [SearchResult] = parse(data: data!)
+        let dataArray: [SearchResult] = self.parse(data: data!)
         var titleArray: [String] = []
         var idArray: [Int] = []
         var posterPathArray: [String?] = []
@@ -57,10 +63,10 @@ struct Network {
             dateArr.append(item.release_date)
             genreArr.append(item.genre_ids)
         }
-        
+
         return (titleArray, idArray, posterPathArray, originalTitleArray, voteAverageArr, dateArr, genreArr)
     }
-    
+
     static func performStoreRequest(with url: URL) -> Data? {
         do {
             return try Data(contentsOf: url)
@@ -70,6 +76,7 @@ struct Network {
         }
     }
     
+// via Generics
     static func parse(data: Data) -> [SearchResult] {
         do {
             let decoder = JSONDecoder()
@@ -80,7 +87,7 @@ struct Network {
             return [] }
     }
     
-    static func parse(data: Data) -> MovieDetails? {
+    private func parse(data: Data) -> MovieDetails? {
         do {
             let decoder = JSONDecoder()
             let result = try decoder.decode(MovieDetails.self, from:data)
@@ -92,7 +99,7 @@ struct Network {
         }
     }
     
-    static func parse(data: Data) -> [Genre] {
+    private func parse(data: Data) -> [Genre] {
         do {
             let decoder = JSONDecoder()
             let result = try decoder.decode(Genres.self, from: data)
@@ -102,70 +109,107 @@ struct Network {
             return []
         }
     }
-    
-    static func getDetails(for movieID: Int) -> MovieDetails {
-        let urlString = URL(string: URLBase + "movie/\(movieID)?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)")!
-        let data = Network.performStoreRequest(with: urlString)
-        return Network.parse(data: data!)!
-    }
-    
-    static func getGenreDict() -> [Int: String] {
+
+}
+
+extension Network: MovieDataProvider{
+    func getGenreDict(success: @escaping ([Int: String])->Void){
         let url = URL(string: self.URLBase + "genre/movie/list?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)")!
-        let data = Network.performStoreRequest(with: url)
-        let genreArr: [Genre] = parse(data: data!)
-        let myDictionary = genreArr.reduce([Int: String]()) { (dict, array) -> [Int: String] in
-            var dict = dict
-            dict[array.id] = array.name
-            return dict
-        }
-        return myDictionary
-    }
-    static func send(_ request: URLRequest,
-              completion: @escaping (Result<Data, Error>)->Void) {
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            let result: Result<Data, Error>
+        let task = URLSession.shared.dataTask(with: url){ data, response, error in
             if let error = error {
-                // First, check if the network just returned an error
-                result = .failure(error)
-            } else { let data = data
-                result = .success(data!)
+                print(error)
+                return
             }
-            DispatchQueue.main.async {
-                completion (result)
+            
+            guard let httpResponse = response as? HTTPURLResponse,
+                (200...299).contains(httpResponse.statusCode) else {
+                    print(response!)
+                    return
+            }
+            
+            if  let data = data {
+                let genreArr: [Genre] = self.parse(data: data)
+                let myDictionary = genreArr.reduce([Int: String]()) { (dict, array) -> [Int: String] in
+                    var dict = dict
+                    dict[array.id] = array.name
+                    return dict
+                }
+                DispatchQueue.main.async {
+                    success(myDictionary)
+                }
             }
         }
         task.resume()
     }
-
-//    static func updateFilmData(ref: MovieData ){
-//        let url = URL(string: self.URLBase + "movie/popular?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)")!
-//        let request = URLRequest(url: url)
-//            self.send(request){ response in
-//                switch response{
-//                case .success( let data):
-//                    let dataArray: [SearchResult] = parse(data: data)
-//                    var titleArray: [String] = []
-//                    var idArray: [Int] = []
-//                    var posterPathArray: [String?] = []
-//                    var originalTitleArray:[String?] = []
-//                    var voteAverageArr: [String] = []
-//                    var dateArr: [String] = []
-//                    var genreArr: [[Int]] = []
-//                    for item in dataArray {
-//                        idArray.append(item.id)
-//                        originalTitleArray.append(item.original_title)
-//                        titleArray.append("\(item)")
-//                        posterPathArray.append(item.poster_path)
-//                        voteAverageArr.append(String(item.vote_average))
-//                        dateArr.append(item.release_date)
-//                        genreArr.append(item.genre_ids)
-//                    }
-//                    ref = MovieData(titles: <#T##[String]#>, ids: <#T##[Int]#>, posterPaths: <#T##[String?]#>, originalTitles: <#T##[String?]#>, voteAverage: <#T##[String]#>, releaseDate: <#T##[String]#>, genres: <#T##[[Int]]#>)
-//                    //self.movieOverview.text = movieDetails.overview
-//                case .failure(let error):
-//                    print(error)
-//                }
-//        }
-//
-//    }
+    
+    func getMovieDetails(for movieID: Int, success: @escaping (MovieDetails) -> Void) {
+        let url = URL(string: self.URLBase + "movie/\(movieID)?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)")!
+        let task = URLSession.shared.dataTask(with: url){ data, response, error in
+                        if let error = error {
+                            print(error)
+                            return
+                        }
+            
+                        guard let httpResponse = response as? HTTPURLResponse,
+                            (200...299).contains(httpResponse.statusCode) else {
+                                print(response!)
+                                return
+                        }
+            
+                        if  let data = data {
+                                let movieDetails = self.parse(data: data)!
+                                DispatchQueue.main.async {
+                                    success(movieDetails)
+                                }
+                        }
+        }
+        task.resume()
+    }
+    
+    func getPosterImage(from path: String, success: @escaping (Data)->Void){
+        let imageURL = URL(string: "https://image.tmdb.org/t/p/w154\(path)")!
+        let task = URLSession.shared.dataTask(with: imageURL){ data, response, error in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse,
+                (200...299).contains(httpResponse.statusCode) else {
+                    print(response!)
+                    return
+            }
+            
+            if  let data = data {
+                DispatchQueue.main.async {
+                    success(data)
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    func getMovieData(success: @escaping ([SearchResult])->Void){
+        let url = URL(string: self.URLBase + "movie/popular?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)")!
+        let task = URLSession.shared.dataTask(with: url){ data, response, error in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse,
+                (200...299).contains(httpResponse.statusCode) else {
+                    print(response!)
+                    return
+            }
+            
+            if  let data = data {
+                let results: [SearchResult] = Network.parse(data: data)
+                DispatchQueue.main.async {
+                    success(results)
+                }
+            }
+        }
+        task.resume()
+    }
 }

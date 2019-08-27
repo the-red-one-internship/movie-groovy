@@ -16,6 +16,8 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var movieOverview: UILabel!
     @IBOutlet weak var posterView: UIImageView!
     
+    var movieData: MovieDataProvider = Network()
+    
     @IBAction func addToWatchlist(_ sender: Any) {
         let db = Firestore.firestore()
         let currentUser = profileManager.getUserID()
@@ -46,35 +48,59 @@ class MovieDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //startLoad()
-        let url = URL(string: Network.URLBase + "movie/\(self.movieID)?api_key=\(Network.APIKey)&language=\(Locale.current.languageCode!)")!
-        let request = URLRequest(url: url)
-        Network.send(request){ response in
-            switch response{
-            case .success( let data):
-                let movieDetails: MovieDetails = Network.parse(data: data)!
-                self.movieOverview.text = movieDetails.overview
-                if let imagePath = movieDetails.poster_path {
-                    let imageURL = URL(string: "https://image.tmdb.org/t/p/w154\(imagePath)")!
-                    let imageRequest = URLRequest(url: imageURL)
-                    Network.send(imageRequest){ response in
-                        switch response{
-                        case .success(let data):
-                            self.posterView.image = UIImage(data: data)
-                        case .failure(let error):
-                            print(error)
-                        }
-                    }
+        movieData.getMovieDetails(for: movieID){
+            [weak self] movieDT in
+            self?.movieDetails = movieDT
+            if let posterPath = movieDT.poster_path {
+                self?.movieData.getPosterImage(from: posterPath) {
+                    [weak self] data in
+                    self?.posterView.image = UIImage(data: data)
+                    
                 }
-            case .failure(let error):
-                print(error)
             }
+            
         }
-        movieLabel.text = titl
+        //startLoad()
+//        let url = URL(string: Network.URLBase + "movie/\(self.movieID)?api_key=\(Network.APIKey)&language=\(Locale.current.languageCode!)")!
+//        let request = URLRequest(url: url)
+//        Network.send(request) { response in
+//            switch response {
+//            case .success(let data):
+//                let movieDetails: MovieDetails = Network.parse(data: data)!
+//                self.movieOverview.text = movieDetails.overview
+//                if let imagePath = movieDetails.poster_path {
+//                    let imageURL = URL(string: "https://image.tmdb.org/t/p/w154\(imagePath)")!
+//                    let imageRequest = URLRequest(url: imageURL)
+//                    Network.send(imageRequest){ response in
+//                        switch response{
+//                        case .success(let data):
+//                            self.posterView.image = UIImage(data: data)
+//                        case .failure(let error):
+//                            print(error)
+//                        }
+//                    }
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+        movieLabel.text = movieTitle
     }
     
-    var titl: String = ""
+    var movieTitle: String = ""
     var movieID: Int = 0
+    var movieDetails: MovieDetails? {
+        willSet{
+            movieOverview.text = newValue?.overview
+//            if let posterPath = newValue?.poster_path {
+//                movieData.getPosteImage(from: posterPath) {
+//                    [weak self] data in
+//                    self?.posterView.image = UIImage(data: data)
+//                    
+//                }
+//            }
+        }
+    }
 //    func startLoad() {
 //        let url = URL(string: Network.URLBase + "movie/\(self.movieID)?api_key=\(Network.APIKey)&language=\(Locale.current.languageCode!)")!
 //        let task = URLSession.shared.dataTask(with: url) { data, response, error in
