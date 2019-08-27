@@ -23,12 +23,12 @@ class MovieDetailViewController: UIViewController {
         let currentUser = profileManager.getUserID()
         let collection = db.collection("\(String(currentUser))")
         
-        let alertVC = UIAlertController(title: "\(self.titl)", message: "Фильм добавлен в лист", preferredStyle: .alert)
+        let alertVC = UIAlertController(title: "\(self.movieTitle)", message: "Фильм добавлен в лист", preferredStyle: .alert)
         
         let addAction = UIAlertAction.init(title: "OK", style: .default) { (UIAlertAction) in
             var docRef: DocumentReference? = nil
             docRef = collection.addDocument(data: [
-                "title": self.titl,
+                "title": self.movieTitle,
                 "watched": false,
                 "film_id": self.movieID
                 //"user_id": Auth.auth().currentUser!.uid
