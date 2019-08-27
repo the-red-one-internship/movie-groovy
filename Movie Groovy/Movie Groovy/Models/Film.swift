@@ -12,7 +12,6 @@ struct Film {
     var id: String
     var title: String
     var watched: Bool
-    //var id_film: String
     
     var dictionary: [String: Any] {
         return [

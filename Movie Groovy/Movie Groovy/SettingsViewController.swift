@@ -17,6 +17,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var changePasswordBTN: UIButton!
     @IBOutlet weak var exitBTN: UIButton!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var textAlert: UILabel!
+    
     
     override func viewDidLoad() {
         
@@ -26,18 +28,22 @@ class SettingsViewController: UIViewController {
         
         super.viewDidLoad()
 
-        if profileManager.userSession() {
-            loginBTN.isEnabled = false
-            changePasswordBTN.isEnabled = true
-            exitBTN.isEnabled = true
-        } else {
-            loginBTN.isEnabled = true
-            changePasswordBTN.isEnabled = false
-            exitBTN.isEnabled = false
+        if self.profileManager.userSession() {
+            switch profileManager.getUserEmail() {
+            case "none":
+                textAlert.text = "Sign in to not lose data!"
+                loginBTN.isEnabled = true
+                changePasswordBTN.isEnabled = false
+                exitBTN.isEnabled = false
+            default:
+                textAlert.text = ""
+                loginBTN.isEnabled = false
+                changePasswordBTN.isEnabled = true
+                exitBTN.isEnabled = true
+            }
         }
         
         imageView.image = UIImage(data: imageData)
-        
     }
     
 }
@@ -45,14 +51,9 @@ class SettingsViewController: UIViewController {
 // MARK: - Buttons
 extension SettingsViewController {
     
-    @IBAction func loginButton(_ sender: Any) {
-        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "Auth") as! StartViewController
-        self.present(loginVC, animated: false, completion: nil)
-    }
-    
     @IBAction func changePasswordButton(_ sender: Any) {
         let changePasswordViewController = storyboard!.instantiateViewController(withIdentifier: "ChangePasswordViewController") as! ChangePasswordViewController
-        changePasswordViewController.transitioningDelegate = self as! UIViewControllerTransitioningDelegate
+        changePasswordViewController.transitioningDelegate = self as UIViewControllerTransitioningDelegate
         changePasswordViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         self.present(changePasswordViewController, animated: true, completion: nil)
     }

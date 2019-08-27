@@ -13,6 +13,7 @@ class StartViewController: UIViewController {
     private let profileManager = ProfileManager()
 
     @IBAction func loginAsGuest(_ sender: Any) {
+        profileManager.signAsGuest()
         self.showHomePage()
     }
     

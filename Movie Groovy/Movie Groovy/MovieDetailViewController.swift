@@ -10,26 +10,26 @@ import Firebase
 
 class MovieDetailViewController: UIViewController {
     
-    //private let firestoreProvider = FirestoreProvider()
+    private let profileManager = ProfileManager()
 
     @IBOutlet weak var movieLabel: UILabel!
     @IBOutlet weak var movieOverview: UILabel!
     @IBOutlet weak var posterView: UIImageView!
     
     @IBAction func addToWatchlist(_ sender: Any) {
-        let collection = Firestore.firestore().collection("films")
+        let db = Firestore.firestore()
+        let currentUser = profileManager.getUserID()
+        let collection = db.collection("\(String(currentUser))")
         
-        let alertVC = UIAlertController(title: "New film", message: "Фильм добавлен в лист", preferredStyle: .alert)
-//        alertVC.addTextField { (UITextField) in
-//
-//        }
+        let alertVC = UIAlertController(title: "\(self.titl)", message: "Фильм добавлен в лист", preferredStyle: .alert)
         
         let addAction = UIAlertAction.init(title: "OK", style: .default) { (UIAlertAction) in
-            
             var docRef: DocumentReference? = nil
             docRef = collection.addDocument(data: [
-                "title": self.title ?? "None",
-                "watched": false
+                "title": self.titl,
+                "watched": false,
+                "film_id": self.movieID
+                //"user_id": Auth.auth().currentUser!.uid
             ]) { error in
                 if let error = error {
                     print("Error adding document: \(error)")

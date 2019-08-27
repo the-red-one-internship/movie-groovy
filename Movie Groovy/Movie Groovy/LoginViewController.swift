@@ -21,7 +21,6 @@ class LoginViewController: UIViewController, UITabBarControllerDelegate {
         }
         
         profileManager.login(email: email, password: password)
-        
     }
     
     override func viewDidLoad() {

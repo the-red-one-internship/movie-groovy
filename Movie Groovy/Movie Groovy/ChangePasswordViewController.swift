@@ -17,13 +17,6 @@ class ChangePasswordViewController: UIViewController, UIViewControllerTransition
     @IBOutlet weak var newPassword: UITextField!
     @IBOutlet weak var confirmNewPassword: UITextField!
     
-    @IBAction func saveTapped(_ sender: Any) {
-        guard let currentPassword = currentPassword.text, let newPassword = newPassword.text, let confirmNewPassword = confirmNewPassword.text else { return }
-        
-        profileManager.changePassword(currentPassword: currentPassword, newPassword: newPassword, confirmNewPassword: confirmNewPassword)
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -39,6 +32,13 @@ class ChangePasswordViewController: UIViewController, UIViewControllerTransition
 }
 
 extension ChangePasswordViewController {
+    @IBAction func saveTapped(_ sender: Any) {
+        guard let currentPassword = currentPassword.text, let newPassword = newPassword.text, let confirmNewPassword = confirmNewPassword.text else { return }
+        
+        profileManager.changePassword(currentPassword: currentPassword, newPassword: newPassword, confirmNewPassword: confirmNewPassword)
+        
+    }
+    
     @IBAction func BackButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

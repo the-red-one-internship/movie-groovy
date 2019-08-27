@@ -9,13 +9,19 @@
 import Foundation
 import Firebase
 
+//protocol UserProfileProvider {
+//    func userSession() -> Bool
+//    func signAsGuest() -> Void
+//    func signUp() -> Void
+//}
+
 class ProfileManager {
-    // MARK: - StartViewController
+    var isAnonymous: Bool?
+
     func userSession() -> Bool {
         return Auth.auth().currentUser != nil
     }
     
-    // MARK: - SettingsViewController
     func signOut() {
         do {
             try Auth.auth().signOut()
@@ -25,7 +31,6 @@ class ProfileManager {
         }
     }
     
-    // MARK: - LoginViewController
     func login(email: String, password: String) {
         let loginViewController = LoginViewController()
         
@@ -43,7 +48,6 @@ class ProfileManager {
         }
     }
     
-    // MARK: - SignUpViewController
     func signUp(email: String, password: String, confirmPassword: String) {
         let signUpViewController = SignUpViewController()
         
@@ -70,7 +74,6 @@ class ProfileManager {
         }
     }
     
-    // MARK: - ChangePasswordViewController
     func changePassword(currentPassword: String, newPassword: String, confirmNewPassword: String) {
         let changePasswordVC = ChangePasswordViewController()
         
@@ -106,6 +109,48 @@ class ProfileManager {
             changePasswordVC.displayWarningLabel(withText: "Passwords do not match")
             return
         }
+    }
+    
+    func signAsGuest () {
+        Auth.auth().signInAnonymously { (authResult, error) in
+            let user = authResult?.user
+            let isAnonymous = user?.isAnonymous
+            let uid = user?.uid
+            
+            self.isAnonymous = isAnonymous!
+        }
+    }
+    
+    func upgradeAnonymousAccount(email: String, password: String) {
+        let viewController = UpgradeAnonymousAccountViewController()
+        
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        
+        Auth.auth().currentUser?.link(with: credential) { (user, error) in
+            if error == nil {
+                print("Anonymous account successfully upgraded")
+                let tabBarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: TabBarViewController.self)) as! TabBarViewController
+                UIApplication.shared.delegate?.window??.rootViewController = tabBarVC
+            } else {
+                print("Error upgrading anonymous account")
+                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                
+                alertController.addAction(defaultAction)
+                viewController.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
+    
+}
+
+extension ProfileManager {
+    func getUserID() -> String {
+        return Auth.auth().currentUser!.uid
+    }
+    
+    func getUserEmail() -> String {
+        return Auth.auth().currentUser?.email ?? "none"
     }
     
 }
