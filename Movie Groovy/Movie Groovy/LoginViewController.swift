@@ -20,13 +20,14 @@ class LoginViewController: UIViewController, UITabBarControllerDelegate {
             return
         }
         
+        profileManager.setViewController(self)
         profileManager.login(email: email, password: password)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.delegate = self
-
+      //  self.present(self, animated: true, completion: nil)
         // Do any additional setup after loading the view.
     }
     

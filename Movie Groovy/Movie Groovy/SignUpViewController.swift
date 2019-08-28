@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITabBarControllerDelegate {
     
     private let profileManager = ProfileManager()
 
@@ -17,10 +17,19 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var confirmPassword: UITextField!
     
     @IBAction func signUpAction(_ sender: Any) {
-        guard let email = email.text, let password = password.text, let confirmPassword = confirmPassword.text else {return}
+        guard let email = email.text, let password = password.text, let confirmPassword = confirmPassword.text else { return }
         
-        profileManager.signUp(email: email, password: password, confirmPassword: confirmPassword)
-        
+        profileManager.setViewController(self)
+        if password != confirmPassword {
+            let alertController = UIAlertController(title: "Password Incorrect", message: "Please, re-type password", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
+            
+        } else {
+            profileManager.signUp(email: email, password: password)
+        }
     }
     
     override func viewDidLoad() {
@@ -29,5 +38,12 @@ class SignUpViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let tabBarIndex = tabBarController.selectedIndex
+        if tabBarIndex == 0 {
+            print("OK")
+        }
     }
 }

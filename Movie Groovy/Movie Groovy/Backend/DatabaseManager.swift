@@ -15,4 +15,9 @@ class DatabaseManager {
     func getCollection(currentUser: String) -> CollectionReference {
         return db.collection("\(currentUser)")
     }
+    
+    func addToWatchlist() {
+        
+    }
+    
 }

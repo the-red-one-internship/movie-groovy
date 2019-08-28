@@ -21,6 +21,17 @@ class ChangePasswordViewController: UIViewController, UIViewControllerTransition
         super.viewDidLoad()
     }
     
+    @IBAction func saveTapped(_ sender: Any) {
+        guard let currentPassword = currentPassword.text, let newPassword = newPassword.text, let confirmNewPassword = confirmNewPassword.text else { return }
+        
+        profileManager.setViewController(self)
+        profileManager.changePassword(currentPassword: currentPassword, newPassword: newPassword, confirmNewPassword: confirmNewPassword) { error in
+            self.displayWarningLabel(withText: error)
+            
+        }
+        
+    }
+    
     func displayWarningLabel (withText text: String) {
         self.warrningLabel.alpha = 0
         self.warrningLabel.text = text
@@ -32,12 +43,7 @@ class ChangePasswordViewController: UIViewController, UIViewControllerTransition
 }
 
 extension ChangePasswordViewController {
-    @IBAction func saveTapped(_ sender: Any) {
-        guard let currentPassword = currentPassword.text, let newPassword = newPassword.text, let confirmNewPassword = confirmNewPassword.text else { return }
-        
-        profileManager.changePassword(currentPassword: currentPassword, newPassword: newPassword, confirmNewPassword: confirmNewPassword)
-        
-    }
+   
     
     @IBAction func BackButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
