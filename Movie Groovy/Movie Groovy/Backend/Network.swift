@@ -24,6 +24,7 @@ protocol MovieDataProvider {
     func getPosterImage(from path: String, success: @escaping (Data)->Void)
     func getGenreDict(success: @escaping ([Int: String])->Void)
     func getMovieData(success: @escaping ([SearchResult])->Void)
+    func getMovieDataSearch(for searchString: String, page: Int, success: @escaping ([SearchResult])->Void)
 }
 
 struct Network {
@@ -211,5 +212,33 @@ extension Network: MovieDataProvider{
             }
         }
         task.resume()
+    }
+    
+    func getMovieDataSearch(for searchString: String, page: Int, success: @escaping ([SearchResult])->Void){
+        let encodedText = searchString.addingPercentEncoding(
+            withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        let preUrlString = String(format: self.URLBase + "search/movie?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)&page=\(page)&include_adult=false&query=%@", encodedText)
+        let urlString = URL(string: preUrlString)!
+        let task = URLSession.shared.dataTask(with: urlString){ data, response, error in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse,
+                (200...299).contains(httpResponse.statusCode) else {
+                    print(response!)
+                    return
+            }
+            
+            if  let data = data {
+                let results: [SearchResult] = Network.parse(data: data)
+                DispatchQueue.main.async {
+                    success(results)
+                }
+            }
+        }
+        task.resume()
+        
     }
 }

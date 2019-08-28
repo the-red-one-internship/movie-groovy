@@ -87,7 +87,6 @@
         <!--Watchlist-->
         <scene sceneID="Ecp-ww-sSv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="orM-ta-R99" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="pDD-Vp-BjY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Watchlist" id="bw9-DE-2Gy"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jcL-UQ-dVY">
@@ -98,6 +97,7 @@
                         <segue destination="Gq0-L4-7zf" kind="relationship" relationship="rootViewController" id="d5d-kb-sXi"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="orM-ta-R99" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4033" y="-933"/>
         </scene>
@@ -462,6 +462,7 @@
                     <navigationItem key="navigationItem" id="FPM-wg-Hwn"/>
                     <connections>
                         <outlet property="tableView" destination="hNg-B3-8ID" id="EhB-9X-HWs"/>
+                        <segue destination="4Ts-mu-BVi" kind="show" id="ydk-7a-vnr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mz0-tO-qah" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -471,7 +472,6 @@
         <!--Watchlist-->
         <scene sceneID="KcF-4Q-Zm0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dF7-uU-kIu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="Watchlist" title="Watchlist" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Gq0-L4-7zf" customClass="WatchlistTableViewController" customModule="Movie_Groovy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MPZ-ix-fwA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -495,6 +495,7 @@
                     <tabBarItem key="tabBarItem" title="Watchlist" id="DKR-eV-dpJ"/>
                     <navigationItem key="navigationItem" id="1Om-NX-0Oq"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dF7-uU-kIu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4032" y="-233"/>
         </scene>
@@ -853,9 +854,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="2GO-7I-2pf" kind="relationship" relationship="viewControllers" id="qD1-Li-RHs"/>
                         <segue destination="gE9-5G-V0M" kind="relationship" relationship="viewControllers" id="vI6-xf-CAZ"/>
                         <segue destination="Xnf-T6-8Lp" kind="relationship" relationship="viewControllers" id="P8y-E0-LKX"/>
-                        <segue destination="2GO-7I-2pf" kind="relationship" relationship="viewControllers" id="qD1-Li-RHs"/>
                         <segue destination="pDD-Vp-BjY" kind="relationship" relationship="viewControllers" id="STy-YR-AxN"/>
                     </connections>
                 </tabBarController>
@@ -887,6 +888,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="ydk-7a-vnr"/>
         <segue reference="qxu-YC-zAS"/>
     </inferredMetricsTieBreakers>
 </document>

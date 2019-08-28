@@ -23,6 +23,13 @@ class ExploreTableViewController: UIViewController, UITableViewDelegate, UITable
     
     var movieDataArr: [SearchResult] = [] {
         willSet{
+            films = []
+            originalTitleArr = []
+            filmPosterPaths = []
+            voteAverageArr = []
+            releaseDates = []
+            genresArr = [[]]
+            movieIDs = []
             for film in newValue{
                 films.append(film.title)
                 originalTitleArr.append(film.original_title)
@@ -30,6 +37,7 @@ class ExploreTableViewController: UIViewController, UITableViewDelegate, UITable
                 voteAverageArr.append(String(film.vote_average))
                 releaseDates.append(film.release_date)
                 genresArr.append(film.genre_ids)
+                movieIDs.append(film.id)
             }
             self.tableView.reloadData()
         }
@@ -41,6 +49,7 @@ class ExploreTableViewController: UIViewController, UITableViewDelegate, UITable
     var voteAverageArr = [String]()
     var releaseDates = [String]()
     var genresArr = [[Int]]()
+    var movieIDs = [Int]()
     
     let cellReuseIdentifier = "cell"
 
@@ -90,6 +99,11 @@ class ExploreTableViewController: UIViewController, UITableViewDelegate, UITable
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
+        let vc = storyboard?.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController
+        vc?.movieID = movieIDs[indexPath.row]
+        vc?.movieTitle = films[indexPath.row]
+        self.navigationController?.pushViewController(vc!, animated: true)
+        
     }
     
     func updateSearchResults(for searchController: UISearchController) {
