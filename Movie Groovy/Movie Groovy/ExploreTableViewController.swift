@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExploreTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ExploreTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
     
     var movieData: MovieDataProvider = Network()
     
@@ -20,6 +20,7 @@ class ExploreTableViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
     }
+    
     var movieDataArr: [SearchResult] = [] {
         willSet{
             for film in newValue{
@@ -89,6 +90,10 @@ class ExploreTableViewController: UIViewController, UITableViewDelegate, UITable
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        //code
     }
 
 }
