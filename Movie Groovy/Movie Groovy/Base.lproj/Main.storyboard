@@ -462,6 +462,7 @@
                     <navigationItem key="navigationItem" id="FPM-wg-Hwn"/>
                     <connections>
                         <outlet property="tableView" destination="hNg-B3-8ID" id="EhB-9X-HWs"/>
+                        <segue destination="4Ts-mu-BVi" kind="show" id="ydk-7a-vnr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mz0-tO-qah" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -886,4 +887,8 @@
             <point key="canvasLocation" x="2548" y="-933"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ydk-7a-vnr"/>
+        <segue reference="qxu-YC-zAS"/>
+    </inferredMetricsTieBreakers>
 </document>
