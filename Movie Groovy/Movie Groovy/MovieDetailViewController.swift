@@ -11,6 +11,7 @@ import Firebase
 class MovieDetailViewController: UIViewController {
     
     private let profileManager = ProfileManager()
+    private let databaseManager = DatabaseManager()
 
     @IBOutlet weak var movieLabel: UILabel!
     @IBOutlet weak var movieOverview: UILabel!
@@ -19,9 +20,8 @@ class MovieDetailViewController: UIViewController {
     var movieData: MovieDataProvider = Network()
     
     @IBAction func addToWatchlist(_ sender: Any) {
-        let db = Firestore.firestore()
         let currentUser = profileManager.getUserID()
-        let collection = db.collection("\(String(currentUser))")
+        let collection = databaseManager.getCollection(currentUser: currentUser)
         
         let alertVC = UIAlertController(title: "\(self.movieTitle)", message: "Фильм добавлен в лист", preferredStyle: .alert)
         
@@ -31,7 +31,6 @@ class MovieDetailViewController: UIViewController {
                 "title": self.movieTitle,
                 "watched": false,
                 "film_id": self.movieID
-                //"user_id": Auth.auth().currentUser!.uid
             ]) { error in
                 if let error = error {
                     print("Error adding document: \(error)")

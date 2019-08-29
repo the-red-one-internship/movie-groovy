@@ -25,6 +25,7 @@ class UpgradeAnonymousAccountViewController: UIViewController {
             let password = password.text
             else { return }
         
+        profileManager.setViewController(self)
         profileManager.upgradeAnonymousAccount(email: email, password: password)
     }
     

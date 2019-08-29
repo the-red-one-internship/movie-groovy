@@ -9,13 +9,10 @@
 import Foundation
 import Firebase
 
-//protocol UserProfileProvider {
-//    func userSession() -> Bool
-//    func signAsGuest() -> Void
-//    func signUp() -> Void
-//}
-
 class ProfileManager {
+    
+    private var viewController: UIViewController?
+    
     var isAnonymous: Bool?
 
     func userSession() -> Bool {
@@ -31,10 +28,13 @@ class ProfileManager {
         }
     }
     
-    func login(email: String, password: String) {
-        let loginViewController = LoginViewController()
+    func login(email: String,
+               password: String) {
+        let loginViewController = self.viewController!
         
-        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+        
+        Auth.auth().signIn(withEmail: email,
+                           password: password) { (user, error) in
             if error == nil {
                 let tabBarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: TabBarViewController.self)) as! TabBarViewController
                 UIApplication.shared.delegate?.window??.rootViewController = tabBarVC
@@ -48,34 +48,30 @@ class ProfileManager {
         }
     }
     
-    func signUp(email: String, password: String, confirmPassword: String) {
-        let signUpViewController = SignUpViewController()
+    func signUp(email: String,
+                password: String) {
+        let signUpViewController = self.viewController!
         
-        if password != confirmPassword {
-            let alertController = UIAlertController(title: "Password Incorrect", message: "Please, re-type password", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            
-            alertController.addAction(defaultAction)
-            signUpViewController.present(alertController, animated: true, completion: nil)
-            
-        } else {
-            Auth.auth().createUser(withEmail: email, password: password) {(user, error) in
-                if error == nil {
-                    print("redirect")
-                    signUpViewController.performSegue(withIdentifier: "signupToLogin", sender: self)
-                } else {
-                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        Auth.auth().createUser(withEmail: email, password: password) {(user, error) in
+            if error == nil {
+                print("redirect")
+                signUpViewController.performSegue(withIdentifier: "signupToLogin", sender: self)
+            } else {
+                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                     
-                    alertController.addAction(defaultAction)
-                    signUpViewController.present(alertController, animated: true, completion: nil)
-                }
+                alertController.addAction(defaultAction)
+                signUpViewController.present(alertController, animated: true, completion: nil)
+                
             }
         }
     }
     
-    func changePassword(currentPassword: String, newPassword: String, confirmNewPassword: String) {
-        let changePasswordVC = ChangePasswordViewController()
+    func changePassword(currentPassword: String,
+                        newPassword: String,
+                        confirmNewPassword: String,
+                        sendError: @escaping (String) -> Void ) {
+        let changePasswordVC = self.viewController!
         
         let user = Auth.auth().currentUser
         guard let email = user?.email else {return}
@@ -84,7 +80,7 @@ class ProfileManager {
         if newPassword == confirmNewPassword {
             user?.reauthenticate(with: credential) { (_, error) in
                 if error != nil {
-                    changePasswordVC.displayWarningLabel(withText: "Invalid current password")
+                    sendError("Invalid current password")
                     print("Faild user re-authenticated ", error!)
                 } else {
                     print("User re-authenticated")
@@ -93,7 +89,7 @@ class ProfileManager {
                             if let errorCode = AuthErrorCode(rawValue: error!._code) {
                                 switch errorCode {
                                 case .weakPassword:
-                                    changePasswordVC.displayWarningLabel(withText: "Short password At least 6 characters!")
+                                    sendError("Password is too short. At least 6 characters!")
                                 default:
                                     print("There is an error")
                                 }
@@ -106,7 +102,7 @@ class ProfileManager {
                 }
             }
         } else {
-            changePasswordVC.displayWarningLabel(withText: "Passwords do not match")
+            sendError("Passwords do not match")
             return
         }
     }
@@ -121,8 +117,9 @@ class ProfileManager {
         }
     }
     
-    func upgradeAnonymousAccount(email: String, password: String) {
-        let viewController = UpgradeAnonymousAccountViewController()
+    func upgradeAnonymousAccount(email: String,
+                                 password: String) {
+        let viewController = self.viewController!
         
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
         
@@ -153,4 +150,7 @@ extension ProfileManager {
         return Auth.auth().currentUser?.email ?? "none"
     }
     
+    func setViewController(_ viewController: UIViewController) {
+        self.viewController = viewController
+    }
 }
