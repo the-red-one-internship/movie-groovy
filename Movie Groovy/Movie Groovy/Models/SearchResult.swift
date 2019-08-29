@@ -19,7 +19,7 @@ class SearchResult:Codable, CustomStringConvertible {
     var poster_path: String? = ""
     var adult = false
     var overview: String = ""
-    var release_date: String = ""
+    var release_date: String? = ""
     var genre_ids: [Int] = []
     var id = 0
     var original_title: String? = ""
