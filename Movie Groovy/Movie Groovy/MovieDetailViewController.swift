@@ -10,34 +10,21 @@ import Firebase
 
 class MovieDetailViewController: UIViewController {
     
-    private let profileManager = ProfileManager()
     private let databaseManager = DatabaseManager()
 
     @IBOutlet weak var movieLabel: UILabel!
     @IBOutlet weak var movieOverview: UILabel!
     @IBOutlet weak var posterView: UIImageView!
+    @IBOutlet weak var watchlistBtn: UIButton!
     
     var movieData: MovieDataProvider = Network()
     
     @IBAction func addToWatchlist(_ sender: Any) {
-        let currentUser = profileManager.getUserID()
-        let collection = databaseManager.getCollection(currentUser: currentUser)
         
-        let alertVC = UIAlertController(title: "\(self.movieTitle)", message: "Фильм добавлен в лист", preferredStyle: .alert)
+        let alertVC = UIAlertController(title: "\(self.movieTitle)", message: "Add  to list", preferredStyle: .alert)
         
         let addAction = UIAlertAction.init(title: "OK", style: .default) { (UIAlertAction) in
-            var docRef: DocumentReference? = nil
-            docRef = collection.addDocument(data: [
-                "title": self.movieTitle,
-                "watched": false,
-                "film_id": self.movieID
-            ]) { error in
-                if let error = error {
-                    print("Error adding document: \(error)")
-                } else {
-                    print("Document added with ID: \(docRef!.documentID)")
-                }
-            }
+            self.databaseManager.addToWatchlist(movieTitle: self.movieTitle, movieID: self.movieID)
         }
         
         alertVC.addAction(addAction)
@@ -58,6 +45,12 @@ class MovieDetailViewController: UIViewController {
             }
         }
         movieLabel.text = movieTitle
+        
+        if databaseManager.checkTheMovie(movieID: movieID) {
+            watchlistBtn.isEnabled = false
+        } else {
+            watchlistBtn.isEnabled = true
+        }
     }
     
     var movieTitle: String = ""
@@ -66,5 +59,9 @@ class MovieDetailViewController: UIViewController {
         willSet{
             movieOverview.text = newValue?.overview
         }
+    }
+    
+    func checkList() {
+        
     }
 }
