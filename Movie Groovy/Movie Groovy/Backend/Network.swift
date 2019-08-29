@@ -23,7 +23,7 @@ protocol MovieDataProvider {
     func getMovieDetails(for movieID: Int, success: @escaping (MovieDetails)->Void)
     func getPosterImage(from path: String, success: @escaping (Data)->Void)
     func getGenreDict(success: @escaping ([Int: String])->Void)
-    func getMovieData(success: @escaping ([SearchResult])->Void)
+    func getMovieData(for page: Int, success: @escaping ([SearchResult])->Void)
     func getMovieDataSearch(for searchString: String, page: Int, success: @escaping ([SearchResult])->Void)
 }
 
@@ -190,8 +190,8 @@ extension Network: MovieDataProvider{
         task.resume()
     }
     
-    func getMovieData(success: @escaping ([SearchResult])->Void){
-        let url = URL(string: self.URLBase + "movie/popular?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)")!
+    func getMovieData(for page: Int, success: @escaping ([SearchResult])->Void){
+        let url = URL(string: self.URLBase + "movie/popular?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)&page=\(page)")!
         let task = URLSession.shared.dataTask(with: url){ data, response, error in
             if let error = error {
                 print(error)
