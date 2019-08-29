@@ -27,7 +27,6 @@
 		84F6DAED231413D500FAFBAD /* UpgradeAnonymousAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6DAEC231413D500FAFBAD /* UpgradeAnonymousAccountViewController.swift */; };
 		84F85018230BC9AF00D99805 /* ExploreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F85017230BC9AF00D99805 /* ExploreTableViewController.swift */; };
 		84F8501A230BCA7700D99805 /* ExploreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F85019230BCA7700D99805 /* ExploreViewCell.swift */; };
-		84F85020230C10F400D99805 /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F8501F230C10F400D99805 /* StorageProvider.swift */; };
 		84F9245C2316741000B40A67 /* DelegatedCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F9245B2316741000B40A67 /* DelegatedCall.swift */; };
 		84FA585723040C3900A2258C /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA585623040C3800A2258C /* TransitionAnimator.swift */; };
 		84FA586B23044AB400A2258C /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA586A23044AB400A2258C /* ChangePasswordViewController.swift */; };
@@ -62,7 +61,6 @@
 		84F6DAEC231413D500FAFBAD /* UpgradeAnonymousAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UpgradeAnonymousAccountViewController.swift; path = "Movie Groovy/UpgradeAnonymousAccountViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84F85017230BC9AF00D99805 /* ExploreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExploreTableViewController.swift; path = "Movie Groovy/ExploreTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84F85019230BCA7700D99805 /* ExploreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExploreViewCell.swift; path = "Movie Groovy/ExploreViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		84F8501F230C10F400D99805 /* StorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorageProvider.swift; path = "Movie Groovy/Backend/StorageProvider.swift"; sourceTree = SOURCE_ROOT; };
 		84F9245B2316741000B40A67 /* DelegatedCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatedCall.swift; sourceTree = "<group>"; };
 		84FA585623040C3800A2258C /* TransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransitionAnimator.swift; path = "Movie Groovy/TransitionAnimator.swift"; sourceTree = SOURCE_ROOT; };
 		84FA585823040E8800A2258C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 		84590842230A9AD500E9224A /* Backend */ = {
 			isa = PBXGroup;
 			children = (
-				84F8501F230C10F400D99805 /* StorageProvider.swift */,
 				84FF4621230E98E600DB153D /* DatabaseManager.swift */,
 				84590846230ACEE100E9224A /* ProfileManager.swift */,
 				842C4B0523067BD7008BF0EA /* Network.swift */,
@@ -304,7 +301,6 @@
 			files = (
 				84F85018230BC9AF00D99805 /* ExploreTableViewController.swift in Sources */,
 				84F63D4C2302A92C00BC3FC9 /* LoginViewController.swift in Sources */,
-				84F85020230C10F400D99805 /* StorageProvider.swift in Sources */,
 				84FF462C230EDCB600DB153D /* WatchlistTableViewController.swift in Sources */,
 				8495C0AD230154F00030BC7A /* SearchResult.swift in Sources */,
 				84F63D4A2302A7B000BC3FC9 /* StartViewController.swift in Sources */,
