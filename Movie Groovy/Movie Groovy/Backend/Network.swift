@@ -61,7 +61,7 @@ struct Network {
             titleArray.append("\(item)")
             posterPathArray.append(item.poster_path)
             voteAverageArr.append(String(item.vote_average))
-            dateArr.append(item.release_date)
+            dateArr.append(item.release_date ?? "-")
             genreArr.append(item.genre_ids)
         }
 

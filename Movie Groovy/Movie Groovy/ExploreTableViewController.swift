@@ -10,6 +10,7 @@ import UIKit
 
 class ExploreTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
     
+    
     var movieData: MovieDataProvider = Network()
     
     var genreDict: [Int: String] = [:] {
@@ -28,14 +29,14 @@ class ExploreTableViewController: UIViewController, UITableViewDelegate, UITable
             filmPosterPaths = []
             voteAverageArr = []
             releaseDates = []
-            genresArr = [[]]
+            genresArr = []
             movieIDs = []
             for film in newValue{
                 films.append(film.title)
                 originalTitleArr.append(film.original_title)
                 filmPosterPaths.append(film.poster_path)
                 voteAverageArr.append(String(film.vote_average))
-                releaseDates.append(film.release_date)
+                releaseDates.append(film.release_date ?? "-")
                 genresArr.append(film.genre_ids)
                 movieIDs.append(film.id)
             }
@@ -80,12 +81,20 @@ class ExploreTableViewController: UIViewController, UITableViewDelegate, UITable
                 imageData in
                 cell.filmPoster.image = UIImage(data: imageData)
             }
+        } else{
+            cell.filmPoster.image = nil
         }
         cell.filmTitle.text = self.films[indexPath.row]
         cell.raiting.text = self.voteAverageArr[indexPath.row]
         let string = self.releaseDates[indexPath.row]
-        let index = string.index(string.startIndex, offsetBy: 4)
-        cell.year.text = String(string[..<index])
+        if string != "",
+            string != "-" {
+            let index = string.index(string.startIndex, offsetBy: 4)
+            cell.year.text = String(string[..<index])
+        }
+        else {
+            cell.year.text = "-"
+        }
         cell.alternativeFilmTitle.text = self.originalTitleArr[indexPath.row] ?? nil
         let genreIDs = self.genresArr[indexPath.row]
         var genresString = ""
@@ -108,6 +117,12 @@ class ExploreTableViewController: UIViewController, UITableViewDelegate, UITable
     
     func updateSearchResults(for searchController: UISearchController) {
         //code
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        movieData.getMovieDataSearch(for: searchText, page: 1){
+            [unowned self ] results in
+            self.movieDataArr = results
+        }
     }
 
 }
