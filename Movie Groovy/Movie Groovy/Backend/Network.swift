@@ -215,9 +215,12 @@ extension Network: MovieDataProvider{
     }
     
     func getMovieDataSearch(for searchString: String, page: Int, success: @escaping ([SearchResult])->Void){
-        let encodedText = searchString.addingPercentEncoding(
+        var preUrlString = String( self.URLBase + "movie/popular?api_key=" + self.APIKey + "&language=\(Locale.current.languageCode!)&page=\(page)")
+        if searchString != "" {
+            let encodedText = searchString.addingPercentEncoding(
             withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-        let preUrlString = String(format: self.URLBase + "search/movie?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)&page=\(page)&include_adult=false&query=%@", encodedText)
+            preUrlString = String(format: self.URLBase + "search/movie?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)&page=\(page)&include_adult=false&query=%@", encodedText)
+        }
         let urlString = URL(string: preUrlString)!
         let task = URLSession.shared.dataTask(with: urlString){ data, response, error in
             if let error = error {
