@@ -8,21 +8,22 @@
 
 import UIKit
 
-class ExploreTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
+class ExploreTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UITableViewDataSourcePrefetching {
     
     
-    var movieData: MovieDataProvider = Network()
-    
-    var genreDict: [Int: String] = [:] {
+    private var movieData: MovieDataProvider = Network()
+    private var currentPage: Int = 1
+    private var searchText: String = ""
+    private var genreDict: [Int: String] = [:] {
         willSet{
-            movieData.getMovieData(){
+            movieData.getMovieData(for: currentPage){
                 [weak self] results in
                 self?.movieDataArr = results
             }
         }
     }
     
-    var movieDataArr: [SearchResult] = [] {
+    private var movieDataArr: [SearchResult] = [] {
         willSet{
             films = []
             originalTitleArr = []
@@ -44,13 +45,13 @@ class ExploreTableViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
 
-    var films = [String]()
-    var originalTitleArr = [String?]()
-    var filmPosterPaths = [String?]()
-    var voteAverageArr = [String]()
-    var releaseDates = [String]()
-    var genresArr = [[Int]]()
-    var movieIDs = [Int]()
+    private var films = [String]()
+    private var originalTitleArr = [String?]()
+    private var filmPosterPaths = [String?]()
+    private var voteAverageArr = [String]()
+    private var releaseDates = [String]()
+    private var genresArr = [[Int]]()
+    private var movieIDs = [Int]()
     
     let cellReuseIdentifier = "cell"
 
@@ -67,6 +68,7 @@ class ExploreTableViewController: UIViewController, UITableViewDelegate, UITable
         self.tableView.rowHeight = 200
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.prefetchDataSource = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -123,6 +125,21 @@ class ExploreTableViewController: UIViewController, UITableViewDelegate, UITable
             [unowned self ] results in
             self.movieDataArr = results
         }
+        self.searchText = searchText
+        self.currentPage = 1
     }
-
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for index in indexPaths{
+            if index.row >= (20*currentPage)-1 {
+               currentPage+=1
+                movieData.getMovieDataSearch(for: searchText, page: currentPage){
+                    [weak self] results in
+                    self?.movieDataArr += results
+                }
+            }
+        }
+        print()
+        
+    }
 }
