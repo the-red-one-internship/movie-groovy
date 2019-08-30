@@ -45,11 +45,17 @@ class MovieDetailViewController: UIViewController {
             }
         }
         movieLabel.text = movieTitle
-        
+    
+    }
+   
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         if databaseManager.checkTheMovie(movieID: movieID) {
-            watchlistBtn.isEnabled = false
+            watchlistBtn.isHidden = true
         } else {
-            watchlistBtn.isEnabled = true
+            watchlistBtn.isHidden = false
         }
     }
     
@@ -59,9 +65,5 @@ class MovieDetailViewController: UIViewController {
         willSet{
             movieOverview.text = newValue?.overview
         }
-    }
-    
-    func checkList() {
-        
     }
 }
