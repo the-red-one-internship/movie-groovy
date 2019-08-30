@@ -34,51 +34,9 @@ struct Network {
     
     private var authStatus: String?
     
-    static func createFilmDataArray(for film: String = "", page number: Int = 1) -> (titles: [String], ids: [Int], posterPaths: [String?], originalTitles: [String?], voteAverage: [String], releaseDate: [String], genres: [[Int]]) {
-        var urlString = URL(string: "")
-        //authStatus = ""
-        if film == "" {
-             urlString = URL(string: "https://api.themoviedb.org/3/" + "movie/popular?api_key=072c8bdd40fcf3a56da915ff2677d129&language=\(Locale.current.languageCode!)&page=\(number)")!
-        } else {
-            let encodedText = film.addingPercentEncoding(
-                withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-            let preUrlString = String(format: "https://api.themoviedb.org/3/" + "search/movie?api_key=072c8bdd40fcf3a56da915ff2677d129&language=\(Locale.current.languageCode!)&page=\(number)&include_adult=false&query=%@", encodedText)
-             urlString = URL(string: preUrlString)!
-        }
-
-        let data = self.performStoreRequest(with: urlString!)
-        let dataArray: [SearchResult] = self.parse(data: data!)
-        var titleArray: [String] = []
-        var idArray: [Int] = []
-        var posterPathArray: [String?] = []
-        var originalTitleArray:[String?] = []
-        var voteAverageArr: [String] = []
-        var dateArr: [String] = []
-        var genreArr: [[Int]] = []
-        for item in dataArray {
-            idArray.append(item.id)
-            originalTitleArray.append(item.original_title)
-            titleArray.append("\(item)")
-            posterPathArray.append(item.poster_path)
-            voteAverageArr.append(String(item.vote_average))
-            dateArr.append(item.release_date ?? "-")
-            genreArr.append(item.genre_ids)
-        }
-
-        return (titleArray, idArray, posterPathArray, originalTitleArray, voteAverageArr, dateArr, genreArr)
-    }
-
-    static func performStoreRequest(with url: URL) -> Data? {
-        do {
-            return try Data(contentsOf: url)
-        } catch {
-            print("Download Error: \(error.localizedDescription)")
-            return nil
-        }
-    }
-    
+ 
 // via Generics
-    static func parse(data: Data) -> [SearchResult] {
+    private func parse(data: Data) -> [SearchResult] {
         do {
             let decoder = JSONDecoder()
             let result = try decoder.decode(ResultArray.self, from:data)
@@ -205,7 +163,7 @@ extension Network: MovieDataProvider{
             }
             
             if  let data = data {
-                let results: [SearchResult] = Network.parse(data: data)
+                let results: [SearchResult] = self.parse(data: data)
                 DispatchQueue.main.async {
                     success(results)
                 }
@@ -235,7 +193,7 @@ extension Network: MovieDataProvider{
             }
             
             if  let data = data {
-                let results: [SearchResult] = Network.parse(data: data)
+                let results: [SearchResult] = self.parse(data: data)
                 DispatchQueue.main.async {
                     success(results)
                 }
