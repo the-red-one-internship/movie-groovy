@@ -16,26 +16,24 @@ class DatabaseManager {
     lazy private var collection = self.getCollection(currentUser: self.user)
     
     let db = Firestore.firestore()
-    
-    private var isAdded = false
+
     
     func getCollection(currentUser: String) -> CollectionReference {
         return db.collection("\(currentUser)")
     }
     
     func addToWatchlist(movieTitle: String, movieID: Int) {
-        var docRef: DocumentReference? = nil
-        docRef = getCollection(currentUser: user).addDocument(data: [
+        collection.document("\(movieID)").setData([
             "title": movieTitle,
-            "watched": false,
-            "film_id": movieID
-        ]) { error in
+            "watched": false
+        ]) { (error) in
             if let error = error {
                 print("Error adding document: \(error)")
             } else {
-                print("Document added with ID: \(docRef!.documentID)")
+                print("Document added with ID: \(movieID)")
             }
         }
+        
     }
     
     
@@ -44,29 +42,16 @@ class DatabaseManager {
 
     func checkTheMovie(movieID: Int) -> Bool {
         let collection = self.collection
-        let docRef = collection.document(String(movieID))
         
-        docRef.getDocument { (document, error) in
-            
-            if let document = document,
-                document.exists {
-                self.isAdded = self.isAddedMovie(word: "added")
+        collection.document("\(movieID)").getDocument { (document, error) in
+            if let document = document, document.exists {
+                print("документ существует")
             } else {
-                print("Document does not exist")
-                self.isAdded = self.isAddedMovie(word: "not added")
+                print("документ не существует")
             }
         }
         
-        return self.isAdded
-    }
-    
-    func isAddedMovie(word: String) -> Bool {
-        switch word {
-        case "added":
-            return true
-        default:
-            return false
-        }
+       return false
     }
     
 }
