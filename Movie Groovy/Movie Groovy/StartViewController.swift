@@ -10,7 +10,7 @@ import UIKit
 
 class StartViewController: UIViewController {
     
-    private let profileManager = ProfileManager()
+    private let profileManager = ProfileManager.shared
 
     @IBAction func loginAsGuest(_ sender: Any) {
         profileManager.signAsGuest()

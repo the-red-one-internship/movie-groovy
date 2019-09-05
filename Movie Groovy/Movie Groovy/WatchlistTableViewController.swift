@@ -11,7 +11,7 @@ import Firebase
 
 class WatchlistTableViewController: UITableViewController {
 
-    private let profileManager = ProfileManager()
+    private let profileManager = ProfileManager.shared
     lazy private var currentUser = profileManager.getUserID()
     
     private var documents: [DocumentSnapshot] = []

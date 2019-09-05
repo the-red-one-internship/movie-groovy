@@ -10,7 +10,7 @@ import UIKit
 
 class ChangePasswordViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
-    private let profileManager = ProfileManager()
+    private let profileManager = ProfileManager.shared
 
     @IBOutlet weak var warrningLabel: UILabel!
     @IBOutlet weak var currentPassword: UITextField!

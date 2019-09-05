@@ -35,11 +35,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dH-IC-fxk">
-                                <rect key="frame" x="170" y="565" width="74" height="44"/>
+                                <rect key="frame" x="133.5" y="453" width="147" height="44"/>
                                 <color key="backgroundColor" red="0.2459598184" green="0.38697159289999999" blue="0.54556530709999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="1nf-jW-bwx"/>
                                 </constraints>
+                                <inset key="contentEdgeInsets" minX="50" minY="0.0" maxX="50" maxY="0.0"/>
                                 <state key="normal" title="Sign in">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -48,7 +49,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8r-Gx-Nmb">
-                                <rect key="frame" x="181" y="632" width="52" height="30"/>
+                                <rect key="frame" x="181" y="520" width="52" height="30"/>
                                 <state key="normal" title="Sign up">
                                     <color key="titleColor" red="0.2459598183631897" green="0.38697159290313721" blue="0.54556530714035034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -56,8 +57,8 @@
                                     <segue destination="tQl-D9-Oqk" kind="show" id="eR0-Nd-aEl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7m-kG-asB">
-                                <rect key="frame" x="116" y="774" width="183" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7m-kG-asB">
+                                <rect key="frame" x="135.5" y="662" width="143" height="30"/>
                                 <state key="normal" title="Log in as a local user"/>
                                 <connections>
                                     <action selector="loginAsGuest:" destination="rQ2-3m-ceu" eventType="touchUpInside" id="DOn-W2-uwA"/>
@@ -67,13 +68,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.2459598184" green="0.38697159289999999" blue="0.54556530709999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="3dH-IC-fxk" firstAttribute="top" secondItem="z1L-8I-MCt" secondAttribute="top" constant="477" id="NOH-VQ-LJF"/>
+                            <constraint firstItem="3dH-IC-fxk" firstAttribute="centerY" secondItem="z1L-8I-MCt" secondAttribute="centerY" id="HPt-MT-Ikx"/>
                             <constraint firstItem="J8r-Gx-Nmb" firstAttribute="top" secondItem="3dH-IC-fxk" secondAttribute="bottom" constant="23" id="P8I-V1-K4e"/>
                             <constraint firstItem="3dH-IC-fxk" firstAttribute="centerX" secondItem="J8r-Gx-Nmb" secondAttribute="centerX" id="WOF-Vl-eG6"/>
-                            <constraint firstItem="3dH-IC-fxk" firstAttribute="leading" secondItem="z1L-8I-MCt" secondAttribute="leading" constant="170" id="cLI-VF-uNC"/>
                             <constraint firstItem="3dH-IC-fxk" firstAttribute="centerX" secondItem="Od1-5g-asK" secondAttribute="centerX" id="cxQ-I4-yew"/>
-                            <constraint firstItem="O7m-kG-asB" firstAttribute="leading" secondItem="z1L-8I-MCt" secondAttribute="leading" constant="116" id="kh0-XK-zYB"/>
-                            <constraint firstItem="z1L-8I-MCt" firstAttribute="bottom" secondItem="O7m-kG-asB" secondAttribute="bottom" constant="58" id="q0p-Xu-tLP"/>
+                            <constraint firstItem="O7m-kG-asB" firstAttribute="top" secondItem="J8r-Gx-Nmb" secondAttribute="bottom" constant="112" id="f9J-O6-Yd3"/>
                             <constraint firstItem="J8r-Gx-Nmb" firstAttribute="centerX" secondItem="O7m-kG-asB" secondAttribute="centerX" id="rKC-Qk-ha1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="z1L-8I-MCt"/>

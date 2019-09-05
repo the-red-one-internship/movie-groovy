@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-    private let profileManager = ProfileManager()
+    private let profileManager = ProfileManager.shared
     private let transition = TransitionAnimator()
     
     @IBOutlet weak var loginBTN: UIButton!

@@ -10,11 +10,14 @@ import Foundation
 import Firebase
 
 class ProfileManager {
+    static let shared = ProfileManager()
     
     private var viewController: UIViewController?
     
     var isAnonymous: Bool?
-
+    
+    private init() { }
+    
     func userSession() -> Bool {
         return Auth.auth().currentUser != nil
     }

@@ -35,13 +35,13 @@ class SearchResult:Codable, CustomStringConvertible {
     }
 }
 
-struct MovieDetails: Codable{
-    var overview: String? = nil
-    var original_title: String = ""
-    var tagline: String = ""
-    var revenue: Int = 0
-    var release_date: String = ""
-    var poster_path: String? = nil
+struct MovieDetails: Codable {
+    let overview: String?
+    let original_title: String
+    let tagline: String
+    let revenue: Int
+    let release_date: String
+    let poster_path: String?
 }
 
 class Genre: Codable {

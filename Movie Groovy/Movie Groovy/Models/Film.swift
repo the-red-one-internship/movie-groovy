@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+//Encodable
 struct Film {
     var id: String
     var title: String

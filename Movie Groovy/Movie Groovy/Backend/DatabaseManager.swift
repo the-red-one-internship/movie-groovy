@@ -11,7 +11,7 @@ import Firebase
 
 class DatabaseManager {
     
-    private let profileManager = ProfileManager()
+    private let profileManager = ProfileManager.shared
     lazy private var user = profileManager.getUserID()
     lazy private var collection = self.getCollection(currentUser: self.user)
     
@@ -35,10 +35,6 @@ class DatabaseManager {
         }
         
     }
-    
-    
-
-   // я забыла, что сохраняю фильмы - документы не под id фильма, а под сгенерированным ключом
 
     func checkTheMovie(movieID: Int) -> Bool {
         let collection = self.collection

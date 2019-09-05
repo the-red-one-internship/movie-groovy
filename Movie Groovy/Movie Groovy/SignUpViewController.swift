@@ -10,7 +10,7 @@ import UIKit
 
 class SignUpViewController: UIViewController, UITabBarControllerDelegate {
     
-    private let profileManager = ProfileManager()
+    private let profileManager = ProfileManager.shared
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
