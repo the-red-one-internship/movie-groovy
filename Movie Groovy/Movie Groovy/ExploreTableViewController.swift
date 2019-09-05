@@ -131,7 +131,7 @@ class ExploreTableViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         for index in indexPaths{
-            if index.row >= (20*currentPage)-1 {
+            if index.row >= (20*currentPage)-2 {
                currentPage+=1
                 movieData.getMovieDataSearch(for: searchText, page: currentPage){
                     [weak self] results in
@@ -139,7 +139,6 @@ class ExploreTableViewController: UIViewController, UITableViewDelegate, UITable
                 }
             }
         }
-        print()
-        
     }
+
 }
