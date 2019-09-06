@@ -83,11 +83,30 @@
             </objects>
             <point key="canvasLocation" x="330" y="-933"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="Ovg-iY-O2S">
+            <objects>
+                <tableViewController storyboardIdentifier="test" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xtb-GO-3qF" customClass="TestExploreTableViewController" customModule="Movie_Groovy" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="190" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hVP-Z0-Y1H">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="xtb-GO-3qF" id="Ywi-BM-wbH"/>
+                            <outlet property="delegate" destination="xtb-GO-3qF" id="gPt-GX-mpS"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="qIL-fu-TGa"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TJ9-G9-bgH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2548" y="-917"/>
+        </scene>
         <!--Watchlist-->
         <scene sceneID="Ecp-ww-sSv">
             <objects>
                 <navigationController id="pDD-Vp-BjY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Watchlist" id="bw9-DE-2Gy"/>
+                    <tabBarItem key="tabBarItem" title="Watchlist" image="list" id="bw9-DE-2Gy"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jcL-UQ-dVY">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -255,7 +274,9 @@
                         <viewLayoutGuide key="safeArea" id="z5g-uG-Y6H"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" id="iSI-ym-Tbf"/>
-                    <navigationItem key="navigationItem" id="PTG-oY-Y9v"/>
+                    <navigationItem key="navigationItem" title="Settings" id="PTG-oY-Y9v">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="S00-z6-0Rq"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="changePasswordBTN" destination="VqS-9v-IaH" id="hw1-7g-nTl"/>
                         <outlet property="exitBTN" destination="Isf-C7-WAb" id="Izz-BL-2yR"/>
@@ -329,7 +350,7 @@
         <scene sceneID="wj3-gr-UTy">
             <objects>
                 <navigationController id="oMC-cq-8Ct" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Setting" id="jzR-S1-gOi"/>
+                    <tabBarItem key="tabBarItem" title="Setting" image="settings" id="jzR-S1-gOi"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="he0-xc-0EB">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -346,7 +367,7 @@
         <scene sceneID="MIo-5p-3KX">
             <objects>
                 <navigationController id="2GO-7I-2pf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="New Explore" id="ZmV-9d-9bw"/>
+                    <tabBarItem key="tabBarItem" title="New Explore" image="home" id="ZmV-9d-9bw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4X6-nt-Cmx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -367,16 +388,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hNg-B3-8ID">
-                                <rect key="frame" x="20" y="132" width="374" height="681"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hNg-B3-8ID">
+                                <rect key="frame" x="0.0" y="132" width="414" height="681"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="cell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="200" id="HGV-jc-r9A" customClass="ExploreViewCell" customModule="Movie_Groovy" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="200"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HGV-jc-r9A" id="6YZ-Kg-Yr2">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="199.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbj-Iq-oef">
@@ -806,6 +827,7 @@
                         <segue destination="2GO-7I-2pf" kind="relationship" relationship="viewControllers" id="qD1-Li-RHs"/>
                         <segue destination="pDD-Vp-BjY" kind="relationship" relationship="viewControllers" id="STy-YR-AxN"/>
                         <segue destination="oMC-cq-8Ct" kind="relationship" relationship="viewControllers" id="ZuP-lF-uof"/>
+                        <segue destination="xtb-GO-3qF" kind="relationship" relationship="viewControllers" id="Gmd-ap-aqA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFG-BI-KZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -813,4 +835,9 @@
             <point key="canvasLocation" x="2548" y="-1660"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home" width="60" height="60"/>
+        <image name="list" width="60" height="60"/>
+        <image name="settings" width="60" height="60"/>
+    </resources>
 </document>
