@@ -8,10 +8,16 @@
 
 import Foundation
 //Encodable
-struct Film {
+struct Film: Codable {
     var id: String
     var title: String
     var watched: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case watched
+    }
     
     var dictionary: [String: Any] {
         return [
@@ -19,6 +25,20 @@ struct Film {
             "watched": watched
         ]
     }
+    
+//    func encode(to encoder: Encoder) throws {
+//        var container = encoder.container(keyedBy: CodingKeys.self)
+//        try container.encode(id, forKey: .id)
+//        try container.encode(title, forKey: .title)
+//        try container.encode(watched, forKey: .watched)
+//    }
+    
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        id = try container.decode(String.self, forKey: .id)
+//        title = try container.decode(String.self, forKey: .title)
+//        watched = try container.decode(Bool.self, forKey: .watched)
+//    }
 }
 
 extension Film {
@@ -26,7 +46,8 @@ extension Film {
         guard let title = dictionary["title"] as? String,
             let watched = dictionary["watched"] as? Bool
             else { return nil }
-        
+
         self.init(id: id, title: title, watched: watched)
     }
+    
 }

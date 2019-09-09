@@ -13,7 +13,6 @@ class EnhancedLabel: UILabel {
 
     var textInsets = UIEdgeInsets() {
         didSet { invalidateIntrinsicContentSize() }
-        willSet { invalidateIntrinsicContentSize() }
     }
     
     override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {

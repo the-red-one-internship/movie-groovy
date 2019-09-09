@@ -274,7 +274,7 @@
                         <viewLayoutGuide key="safeArea" id="z5g-uG-Y6H"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" id="iSI-ym-Tbf"/>
-                    <navigationItem key="navigationItem" title="Settings" id="PTG-oY-Y9v">
+                    <navigationItem key="navigationItem" id="PTG-oY-Y9v">
                         <barButtonItem key="backBarButtonItem" title="Back" id="S00-z6-0Rq"/>
                     </navigationItem>
                     <connections>

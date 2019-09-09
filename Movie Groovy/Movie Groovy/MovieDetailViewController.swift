@@ -10,7 +10,7 @@ import Firebase
 
 class MovieDetailViewController: UIViewController {
     
-    private let databaseManager = DatabaseManager()
+    private let databaseManager = DatabaseManager.shared
 
     @IBOutlet weak var movieLabel: UILabel!
     @IBOutlet weak var movieOverview: UILabel!

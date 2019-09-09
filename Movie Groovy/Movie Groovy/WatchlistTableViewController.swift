@@ -18,7 +18,7 @@ class WatchlistTableViewController: UITableViewController {
     public var films: [Film] = []
     private var listener : ListenerRegistration!
     
-    private var db = DatabaseManager()
+    private var db = DatabaseManager.shared
     lazy private var collection = db.getCollection(currentUser: currentUser)
     
     fileprivate func baseQuery() -> Query {
@@ -54,6 +54,7 @@ class WatchlistTableViewController: UITableViewController {
             }
             
             let results = snapshot.documents.map { (document) -> Film in
+                print(document.data())
                 if let film = Film(dictionary: document.data(), id: document.documentID) {
                     return film
                 } else {
@@ -62,7 +63,7 @@ class WatchlistTableViewController: UITableViewController {
             }
             
             self.films = results
-            self.documents = snapshot.documents
+            //self.documents = snapshot.documents
             self.tableView.reloadData()
         }
         
