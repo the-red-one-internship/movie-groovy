@@ -19,6 +19,7 @@
 		84684B0723225407009BFF05 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84684B0623225407009BFF05 /* TestTableViewCell.swift */; };
 		848A2CA622FD75F700CBA048 /* ToolCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A2CA522FD75F700CBA048 /* ToolCollectionViewCell.swift */; };
 		8495C0AD230154F00030BC7A /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495C0AC230154F00030BC7A /* SearchResult.swift */; };
+		84F637992326276500156285 /* EdgeInsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F637982326276500156285 /* EdgeInsetLabel.swift */; };
 		84F63D4823028F5000BC3FC9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F63D4723028F5000BC3FC9 /* SettingsViewController.swift */; };
 		84F63D4A2302A7B000BC3FC9 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F63D492302A7B000BC3FC9 /* StartViewController.swift */; };
 		84F63D4C2302A92C00BC3FC9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F63D4B2302A92C00BC3FC9 /* LoginViewController.swift */; };
@@ -54,6 +55,7 @@
 		84684B0623225407009BFF05 /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		848A2CA522FD75F700CBA048 /* ToolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolCollectionViewCell.swift; path = "Movie Groovy/ToolCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		8495C0AC230154F00030BC7A /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		84F637982326276500156285 /* EdgeInsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInsetLabel.swift; sourceTree = "<group>"; };
 		84F63D4723028F5000BC3FC9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = "Movie Groovy/SettingsViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84F63D492302A7B000BC3FC9 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StartViewController.swift; path = "Movie Groovy/StartViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84F63D4B2302A92C00BC3FC9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Movie Groovy/LoginViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -132,6 +134,7 @@
 				84F63D4D2302AA8300BC3FC9 /* SignUpViewController.swift */,
 				84F63D4B2302A92C00BC3FC9 /* LoginViewController.swift */,
 				84365A2922FC29AF0098D666 /* Main.storyboard */,
+				84F637982326276500156285 /* EdgeInsetLabel.swift */,
 				84684B042322463B009BFF05 /* TestExploreTableViewController.swift */,
 				84684B0223224119009BFF05 /* ExploreXibCell.xib */,
 				84684B0623225407009BFF05 /* TestTableViewCell.swift */,
@@ -304,6 +307,7 @@
 				84F85018230BC9AF00D99805 /* ExploreTableViewController.swift in Sources */,
 				84F63D4C2302A92C00BC3FC9 /* LoginViewController.swift in Sources */,
 				84FF462C230EDCB600DB153D /* WatchlistTableViewController.swift in Sources */,
+				84F637992326276500156285 /* EdgeInsetLabel.swift in Sources */,
 				8495C0AD230154F00030BC7A /* SearchResult.swift in Sources */,
 				84684B052322463B009BFF05 /* TestExploreTableViewController.swift in Sources */,
 				84F63D4A2302A7B000BC3FC9 /* StartViewController.swift in Sources */,

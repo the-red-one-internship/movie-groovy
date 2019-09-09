@@ -41,9 +41,6 @@ class TestExploreTableViewController: UITableViewController {
         cell.bodyCell.layer.shadowRadius = 8
         cell.bodyCell.layer.shadowOpacity = 0.1
         cell.bodyCell.layer.shadowOffset = CGSize(width: 0, height: 5)
-        cell.ganre_1.layer.cornerRadius = 8
-        cell.ganre_2.layer.cornerRadius = 8
-        cell.ganre_3.layer.cornerRadius = 8
         
         let urlString = "https://pp.userapi.com/c851536/v851536244/3948d/3xmzEE0IxM4.jpg"
         let urlImage = URL(string: urlString)

@@ -14,10 +14,6 @@ class TestTableViewCell: UITableViewCell {
     @IBOutlet weak var bodyCell: UIView!
     @IBOutlet var ganres: [UILabel]!
     
-    @IBOutlet weak var ganre_1: UILabel!
-    @IBOutlet weak var ganre_2: UILabel!
-    @IBOutlet weak var ganre_3: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
