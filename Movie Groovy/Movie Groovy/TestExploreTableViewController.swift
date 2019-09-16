@@ -17,7 +17,7 @@ class TestExploreTableViewController: UITableViewController {
         tableView?.register(xib, forCellReuseIdentifier: "ExploreXibCell")
         
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        self.tableView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.tableView.backgroundColor = #colorLiteral(red: 0.9523501992, green: 0.9524834752, blue: 0.9523081183, alpha: 1)
     }
     
     
