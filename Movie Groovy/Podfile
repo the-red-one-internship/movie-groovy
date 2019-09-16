@@ -11,6 +11,8 @@ target 'Movie Groovy' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Analytics'
   pod 'Firebase/Storage'
-  pod 'LBTATools'
+  pod 'SwiftyJSON'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
 end

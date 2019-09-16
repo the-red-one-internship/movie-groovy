@@ -16,8 +16,8 @@ class ExploreViewCell: UITableViewCell {
     @IBOutlet weak var year: UILabel!
     @IBOutlet weak var ganres: UILabel!
     @IBOutlet weak var raiting: UILabel!
-    @IBOutlet weak var country: UILabel!
     
+    var movieID: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()

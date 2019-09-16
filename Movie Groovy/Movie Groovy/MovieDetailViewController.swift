@@ -17,7 +17,19 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var posterView: UIImageView!
     @IBOutlet weak var watchlistBtn: UIButton!
     
-    var movieData: MovieDataProvider = Network()
+    //var movieDetails: MovieDetails?
+    
+    lazy private var viewModel: MovieDetailsVM = MovieDetailsVM(setMovieDetails: { [weak self] details in
+            DispatchQueue.main.async {
+                self?.movieOverview.text = details.overview
+            }
+        },
+        setPoster: { [weak self] poster in
+            DispatchQueue.main.async {
+                self?.posterView.image = UIImage(data: poster)
+            }
+        }
+    )
     
     @IBAction func addToWatchlist(_ sender: Any) {
         
@@ -34,17 +46,8 @@ class MovieDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        movieData.getMovieDetails(for: movieID){
-            [weak self] movieDT in
-            self?.movieDetails = movieDT
-            if let posterPath = movieDT.poster_path {
-                self?.movieData.getPosterImage(from: posterPath) {
-                    [weak self] data in
-                    self?.posterView.image = UIImage(data: data)
-                }
-            }
-        }
-        movieLabel.text = movieTitle
+        self.viewModel.getMovieDetails(for: movieID)
+        self.movieLabel.text = movieTitle
     
     }
    
@@ -61,9 +64,4 @@ class MovieDetailViewController: UIViewController {
     
     var movieTitle: String = ""
     var movieID: Int = 0
-    var movieDetails: MovieDetails? {
-        willSet{
-            movieOverview.text = newValue?.overview
-        }
-    }
 }
