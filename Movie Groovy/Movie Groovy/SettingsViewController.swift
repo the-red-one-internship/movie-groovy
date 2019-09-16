@@ -51,13 +51,6 @@ class SettingsViewController: UIViewController {
 // MARK: - Buttons
 extension SettingsViewController {
     
-    @IBAction func changePasswordButton(_ sender: Any) {
-        let changePasswordViewController = storyboard!.instantiateViewController(withIdentifier: "ChangePasswordViewController") as! ChangePasswordViewController
-        changePasswordViewController.transitioningDelegate = self as UIViewControllerTransitioningDelegate
-        changePasswordViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        self.present(changePasswordViewController, animated: true, completion: nil)
-    }
-    
     @IBAction func exitButton(_ sender: Any) {
         self.profileManager.signOut()
         
