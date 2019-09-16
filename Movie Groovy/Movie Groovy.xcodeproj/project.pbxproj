@@ -16,22 +16,29 @@
 		84461DE1232F5DDB00EBBFCD /* MovieDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84461DE0232F5DDB00EBBFCD /* MovieDetailsVM.swift */; };
 		84590841230A932A00E9224A /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84590840230A932A00E9224A /* MovieDetailViewController.swift */; };
 		84590847230ACEE100E9224A /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84590846230ACEE100E9224A /* ProfileManager.swift */; };
+		84684B0323224119009BFF05 /* ExploreXibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84684B0223224119009BFF05 /* ExploreXibCell.xib */; };
+		84684B052322463B009BFF05 /* TestExploreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84684B042322463B009BFF05 /* TestExploreTableViewController.swift */; };
+		84684B0723225407009BFF05 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84684B0623225407009BFF05 /* TestTableViewCell.swift */; };
 		848A2CA622FD75F700CBA048 /* ToolCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A2CA522FD75F700CBA048 /* ToolCollectionViewCell.swift */; };
 		8495C0AD230154F00030BC7A /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495C0AC230154F00030BC7A /* SearchResult.swift */; };
+		84F462AE232A333400B55C30 /* TextFieldAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F462AD232A333400B55C30 /* TextFieldAnimation.swift */; };
+		84F462B0232A7A3C00B55C30 /* RegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F462AF232A7A3C00B55C30 /* RegViewController.swift */; };
+		84F637992326276500156285 /* EdgeInsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F637982326276500156285 /* EdgeInsetLabel.swift */; };
 		84F63D4823028F5000BC3FC9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F63D4723028F5000BC3FC9 /* SettingsViewController.swift */; };
 		84F63D4A2302A7B000BC3FC9 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F63D492302A7B000BC3FC9 /* StartViewController.swift */; };
 		84F63D4C2302A92C00BC3FC9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F63D4B2302A92C00BC3FC9 /* LoginViewController.swift */; };
 		84F63D4E2302AA8300BC3FC9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F63D4D2302AA8300BC3FC9 /* SignUpViewController.swift */; };
 		84F63D562302B2D700BC3FC9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84F63D552302B2D700BC3FC9 /* GoogleService-Info.plist */; };
 		84F63D582302FC4000BC3FC9 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F63D572302FC4000BC3FC9 /* TabBarViewController.swift */; };
+		84F6CB92232B6080003BED10 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6CB91232B6080003BED10 /* CustomTextField.swift */; };
+		84F6CB95232B6789003BED10 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6CB94232B6789003BED10 /* CustomButton.swift */; };
 		84F6DAED231413D500FAFBAD /* UpgradeAnonymousAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6DAEC231413D500FAFBAD /* UpgradeAnonymousAccountViewController.swift */; };
 		84F85018230BC9AF00D99805 /* ExploreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F85017230BC9AF00D99805 /* ExploreTableViewController.swift */; };
 		84F8501A230BCA7700D99805 /* ExploreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F85019230BCA7700D99805 /* ExploreViewCell.swift */; };
-		84F9245C2316741000B40A67 /* DelegatedCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F9245B2316741000B40A67 /* DelegatedCall.swift */; };
 		84FA585723040C3900A2258C /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA585623040C3800A2258C /* TransitionAnimator.swift */; };
 		84FA586B23044AB400A2258C /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA586A23044AB400A2258C /* ChangePasswordViewController.swift */; };
 		84FF4622230E98E600DB153D /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF4621230E98E600DB153D /* DatabaseManager.swift */; };
-		84FF4624230E99E900DB153D /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF4623230E99E900DB153D /* Film.swift */; };
+		84FF4624230E99E900DB153D /* Films.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF4623230E99E900DB153D /* Films.swift */; };
 		84FF462C230EDCB600DB153D /* WatchlistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF462B230EDCB600DB153D /* WatchlistTableViewController.swift */; };
 		B138E8B830BEED9CD0B61533 /* Pods_Movie_Groovy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFFCCAC7E69FFD5B5751DA6 /* Pods_Movie_Groovy.framework */; };
 /* End PBXBuildFile section */
@@ -50,6 +57,9 @@
 		84461DE0232F5DDB00EBBFCD /* MovieDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MovieDetailsVM.swift; path = "Movie Groovy/Models/MovieDetailsVM.swift"; sourceTree = SOURCE_ROOT; };
 		84590840230A932A00E9224A /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MovieDetailViewController.swift; path = "Movie Groovy/MovieDetailViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84590846230ACEE100E9224A /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileManager.swift; path = "Movie Groovy/Backend/ProfileManager.swift"; sourceTree = SOURCE_ROOT; };
+		84684B0223224119009BFF05 /* ExploreXibCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ExploreXibCell.xib; path = "Movie Groovy/ExploreXibCell.xib"; sourceTree = SOURCE_ROOT; };
+		84684B042322463B009BFF05 /* TestExploreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestExploreTableViewController.swift; path = "Movie Groovy/TestExploreTableViewController.swift"; sourceTree = SOURCE_ROOT; };
+		84684B0623225407009BFF05 /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestTableViewCell.swift; path = "Movie Groovy/TestTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		848A2CA522FD75F700CBA048 /* ToolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolCollectionViewCell.swift; path = "Movie Groovy/ToolCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		8495C0AC230154F00030BC7A /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchResult.swift; path = "Movie Groovy/Models/SearchResult.swift"; sourceTree = SOURCE_ROOT; };
 		84F63D4723028F5000BC3FC9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = "Movie Groovy/SettingsViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -58,17 +68,18 @@
 		84F63D4D2302AA8300BC3FC9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "Movie Groovy/SignUpViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84F63D552302B2D700BC3FC9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Movie Groovy/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		84F63D572302FC4000BC3FC9 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = "Movie Groovy/TabBarViewController.swift"; sourceTree = SOURCE_ROOT; };
+		84F6CB91232B6080003BED10 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomTextField.swift; path = "Movie Groovy/Style/CustomTextField.swift"; sourceTree = SOURCE_ROOT; };
+		84F6CB94232B6789003BED10 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = "Movie Groovy/Style/CustomButton.swift"; sourceTree = SOURCE_ROOT; };
 		84F6DAEC231413D500FAFBAD /* UpgradeAnonymousAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UpgradeAnonymousAccountViewController.swift; path = "Movie Groovy/UpgradeAnonymousAccountViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84F85017230BC9AF00D99805 /* ExploreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExploreTableViewController.swift; path = "Movie Groovy/ExploreTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84F85019230BCA7700D99805 /* ExploreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExploreViewCell.swift; path = "Movie Groovy/ExploreViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		84F9245B2316741000B40A67 /* DelegatedCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatedCall.swift; path = "Movie Groovy/DelegatedCall.swift"; sourceTree = SOURCE_ROOT; };
 		84FA585623040C3800A2258C /* TransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransitionAnimator.swift; path = "Movie Groovy/TransitionAnimator.swift"; sourceTree = SOURCE_ROOT; };
 		84FA585823040E8800A2258C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		84FA585923040E8800A2258C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		84FA586A23044AB400A2258C /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChangePasswordViewController.swift; path = "Movie Groovy/ChangePasswordViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84FF4621230E98E600DB153D /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DatabaseManager.swift; path = "Movie Groovy/Backend/DatabaseManager.swift"; sourceTree = SOURCE_ROOT; };
-		84FF4623230E99E900DB153D /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Film.swift; path = "Movie Groovy/Models/Film.swift"; sourceTree = SOURCE_ROOT; };
-		84FF462B230EDCB600DB153D /* WatchlistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WatchlistTableViewController.swift; path = "Movie Groovy/WatchlistTableViewController.swift"; sourceTree = SOURCE_ROOT; };
+		84FF4623230E99E900DB153D /* Films.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Films.swift; sourceTree = "<group>"; };
+		84FF462B230EDCB600DB153D /* WatchlistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WatchlistTableViewController.swift; path = "Movie Groovy/Watchlist View/WatchlistTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		ABFFCCAC7E69FFD5B5751DA6 /* Pods_Movie_Groovy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movie_Groovy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -130,14 +141,19 @@
 				84F63D4D2302AA8300BC3FC9 /* SignUpViewController.swift */,
 				84F63D4B2302A92C00BC3FC9 /* LoginViewController.swift */,
 				84365A2922FC29AF0098D666 /* Main.storyboard */,
+				84F6CB93232B6727003BED10 /* Style */,
+				84F462AF232A7A3C00B55C30 /* RegViewController.swift */,
+				84F462AD232A333400B55C30 /* TextFieldAnimation.swift */,
+				84684B042322463B009BFF05 /* TestExploreTableViewController.swift */,
+				84684B0223224119009BFF05 /* ExploreXibCell.xib */,
+				84684B0623225407009BFF05 /* TestTableViewCell.swift */,
 				84F6DAEC231413D500FAFBAD /* UpgradeAnonymousAccountViewController.swift */,
-				84FF462B230EDCB600DB153D /* WatchlistTableViewController.swift */,
+				84F7B73F2327BBBC00AB4F59 /* Watchlist View */,
 				84F85019230BCA7700D99805 /* ExploreViewCell.swift */,
 				84F85017230BC9AF00D99805 /* ExploreTableViewController.swift */,
 				84FA586A23044AB400A2258C /* ChangePasswordViewController.swift */,
 				84FA585623040C3800A2258C /* TransitionAnimator.swift */,
 				84F63D572302FC4000BC3FC9 /* TabBarViewController.swift */,
-				84F9245B2316741000B40A67 /* DelegatedCall.swift */,
 				84590842230A9AD500E9224A /* Backend */,
 				84365A3722FC2DDD0098D666 /* Supporting Files */,
 				84365A3122FC29B00098D666 /* Info.plist */,
@@ -172,13 +188,32 @@
 			isa = PBXGroup;
 			children = (
 				8495C0AC230154F00030BC7A /* SearchResult.swift */,
-				84FF4623230E99E900DB153D /* Film.swift */,
+				84FF4623230E99E900DB153D /* Films.swift */,
 				84223288232A17C90040690E /* ExploreViewModel.swift */,
 				84461DE0232F5DDB00EBBFCD /* MovieDetailsVM.swift */,
 			);
 			name = Models;
 			path = "Movie Groovy/Models";
 			sourceTree = SOURCE_ROOT;
+		};
+		84F6CB93232B6727003BED10 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				84F6CB91232B6080003BED10 /* CustomTextField.swift */,
+				84F637982326276500156285 /* EdgeInsetLabel.swift */,
+				84F6CB94232B6789003BED10 /* CustomButton.swift */,
+			);
+			name = Style;
+			path = "Movie Groovy/Style";
+			sourceTree = SOURCE_ROOT;
+		};
+		84F7B73F2327BBBC00AB4F59 /* Watchlist View */ = {
+			isa = PBXGroup;
+			children = (
+				84FF462B230EDCB600DB153D /* WatchlistTableViewController.swift */,
+			);
+			path = "Watchlist View";
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -241,6 +276,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84684B0323224119009BFF05 /* ExploreXibCell.xib in Resources */,
 				84365A3022FC29B00098D666 /* LaunchScreen.storyboard in Resources */,
 				84F63D562302B2D700BC3FC9 /* GoogleService-Info.plist in Resources */,
 				84365A2D22FC29B00098D666 /* Assets.xcassets in Resources */,
@@ -297,12 +333,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F6CB95232B6789003BED10 /* CustomButton.swift in Sources */,
 				84F85018230BC9AF00D99805 /* ExploreTableViewController.swift in Sources */,
 				84F63D4C2302A92C00BC3FC9 /* LoginViewController.swift in Sources */,
 				84FF462C230EDCB600DB153D /* WatchlistTableViewController.swift in Sources */,
+				84F637992326276500156285 /* EdgeInsetLabel.swift in Sources */,
 				8495C0AD230154F00030BC7A /* SearchResult.swift in Sources */,
+				84684B052322463B009BFF05 /* TestExploreTableViewController.swift in Sources */,
 				84F63D4A2302A7B000BC3FC9 /* StartViewController.swift in Sources */,
-				84FF4624230E99E900DB153D /* Film.swift in Sources */,
+				84F6CB92232B6080003BED10 /* CustomTextField.swift in Sources */,
+				84F462B0232A7A3C00B55C30 /* RegViewController.swift in Sources */,
+				84FF4624230E99E900DB153D /* Films.swift in Sources */,
 				84223289232A17C90040690E /* ExploreViewModel.swift in Sources */,
 				84590847230ACEE100E9224A /* ProfileManager.swift in Sources */,
 				84F63D582302FC4000BC3FC9 /* TabBarViewController.swift in Sources */,
@@ -312,13 +353,14 @@
 				84461DE1232F5DDB00EBBFCD /* MovieDetailsVM.swift in Sources */,
 				848A2CA622FD75F700CBA048 /* ToolCollectionViewCell.swift in Sources */,
 				84F8501A230BCA7700D99805 /* ExploreViewCell.swift in Sources */,
-				84F9245C2316741000B40A67 /* DelegatedCall.swift in Sources */,
 				842C4B0623067BD7008BF0EA /* Network.swift in Sources */,
 				84F6DAED231413D500FAFBAD /* UpgradeAnonymousAccountViewController.swift in Sources */,
 				84365A2622FC29AF0098D666 /* AppDelegate.swift in Sources */,
+				84F462AE232A333400B55C30 /* TextFieldAnimation.swift in Sources */,
 				84590841230A932A00E9224A /* MovieDetailViewController.swift in Sources */,
 				84FA585723040C3900A2258C /* TransitionAnimator.swift in Sources */,
 				84FA586B23044AB400A2258C /* ChangePasswordViewController.swift in Sources */,
+				84684B0723225407009BFF05 /* TestTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

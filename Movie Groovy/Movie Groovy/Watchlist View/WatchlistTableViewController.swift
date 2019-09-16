@@ -15,16 +15,16 @@ class WatchlistTableViewController: UITableViewController {
     lazy private var currentUser = profileManager.getUserID()
     
     private var documents: [DocumentSnapshot] = []
-    public var films: [Film] = []
+    public var films: [Films] = []
     private var listener : ListenerRegistration!
-    
-    private var db = DatabaseManager()
+
+    private var db = DatabaseManager.shared
     lazy private var collection = db.getCollection(currentUser: currentUser)
-    
+
     fileprivate func baseQuery() -> Query {
         return collection.limit(to: 50)
     }
-    
+
     fileprivate var query: Query? {
         didSet {
             if let listener = listener {
@@ -52,15 +52,14 @@ class WatchlistTableViewController: UITableViewController {
                 print("Error fetching documents results: \(error!)")
                 return
             }
-            
-            let results = snapshot.documents.map { (document) -> Film in
-                if let film = Film(dictionary: document.data(), id: document.documentID) {
+            let results = snapshot.documents.map { (document) -> Films in
+                if let film = Films(dictionary: document.data(), id: document.documentID) {
                     return film
                 } else {
-                    fatalError("Unable to initialize type \(Film.self) with dictionary \(document.data())")
+                    fatalError("Unable to initialize type \(Films.self) with dictionary \(document.data())")
                 }
             }
-            
+
             self.films = results
             self.documents = snapshot.documents
             self.tableView.reloadData()
@@ -88,7 +87,7 @@ class WatchlistTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = films[indexPath.row]
+        let item = self.films[indexPath.row]
         let collection = self.collection
         
         collection.document(item.id).updateData([

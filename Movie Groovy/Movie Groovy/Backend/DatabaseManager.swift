@@ -10,6 +10,9 @@ import Foundation
 import Firebase
 
 class DatabaseManager {
+    static let shared  = DatabaseManager()
+    
+    private init() { }
     
     private let profileManager = ProfileManager.shared
     lazy private var user = profileManager.getUserID()
