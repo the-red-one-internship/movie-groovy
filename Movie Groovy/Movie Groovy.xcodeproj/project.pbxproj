@@ -20,10 +20,11 @@
 		84684B052322463B009BFF05 /* TestExploreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84684B042322463B009BFF05 /* TestExploreTableViewController.swift */; };
 		84684B0723225407009BFF05 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84684B0623225407009BFF05 /* TestTableViewCell.swift */; };
 		848A2CA622FD75F700CBA048 /* ToolCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A2CA522FD75F700CBA048 /* ToolCollectionViewCell.swift */; };
+		8490BC7E232F9E9C00CDC362 /* EdgeInsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8490BC7D232F9E9C00CDC362 /* EdgeInsetLabel.swift */; };
 		8495C0AD230154F00030BC7A /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495C0AC230154F00030BC7A /* SearchResult.swift */; };
-		84F462AE232A333400B55C30 /* TextFieldAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F462AD232A333400B55C30 /* TextFieldAnimation.swift */; };
-		84F462B0232A7A3C00B55C30 /* RegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F462AF232A7A3C00B55C30 /* RegViewController.swift */; };
-		84F637992326276500156285 /* EdgeInsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F637982326276500156285 /* EdgeInsetLabel.swift */; };
+		84F462AE232A333400B55C30 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		84F462B0232A7A3C00B55C30 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		84F637992326276500156285 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		84F63D4823028F5000BC3FC9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F63D4723028F5000BC3FC9 /* SettingsViewController.swift */; };
 		84F63D4A2302A7B000BC3FC9 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F63D492302A7B000BC3FC9 /* StartViewController.swift */; };
 		84F63D4C2302A92C00BC3FC9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F63D4B2302A92C00BC3FC9 /* LoginViewController.swift */; };
@@ -61,6 +62,7 @@
 		84684B042322463B009BFF05 /* TestExploreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestExploreTableViewController.swift; path = "Movie Groovy/TestExploreTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84684B0623225407009BFF05 /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestTableViewCell.swift; path = "Movie Groovy/TestTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		848A2CA522FD75F700CBA048 /* ToolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolCollectionViewCell.swift; path = "Movie Groovy/ToolCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		8490BC7D232F9E9C00CDC362 /* EdgeInsetLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EdgeInsetLabel.swift; path = "Movie Groovy/Style/EdgeInsetLabel.swift"; sourceTree = SOURCE_ROOT; };
 		8495C0AC230154F00030BC7A /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchResult.swift; path = "Movie Groovy/Models/SearchResult.swift"; sourceTree = SOURCE_ROOT; };
 		84F63D4723028F5000BC3FC9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = "Movie Groovy/SettingsViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84F63D492302A7B000BC3FC9 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StartViewController.swift; path = "Movie Groovy/StartViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -142,8 +144,6 @@
 				84F63D4B2302A92C00BC3FC9 /* LoginViewController.swift */,
 				84365A2922FC29AF0098D666 /* Main.storyboard */,
 				84F6CB93232B6727003BED10 /* Style */,
-				84F462AF232A7A3C00B55C30 /* RegViewController.swift */,
-				84F462AD232A333400B55C30 /* TextFieldAnimation.swift */,
 				84684B042322463B009BFF05 /* TestExploreTableViewController.swift */,
 				84684B0223224119009BFF05 /* ExploreXibCell.xib */,
 				84684B0623225407009BFF05 /* TestTableViewCell.swift */,
@@ -200,8 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				84F6CB91232B6080003BED10 /* CustomTextField.swift */,
-				84F637982326276500156285 /* EdgeInsetLabel.swift */,
 				84F6CB94232B6789003BED10 /* CustomButton.swift */,
+				8490BC7D232F9E9C00CDC362 /* EdgeInsetLabel.swift */,
 			);
 			name = Style;
 			path = "Movie Groovy/Style";
@@ -337,12 +337,13 @@
 				84F85018230BC9AF00D99805 /* ExploreTableViewController.swift in Sources */,
 				84F63D4C2302A92C00BC3FC9 /* LoginViewController.swift in Sources */,
 				84FF462C230EDCB600DB153D /* WatchlistTableViewController.swift in Sources */,
-				84F637992326276500156285 /* EdgeInsetLabel.swift in Sources */,
+				84F637992326276500156285 /* (null) in Sources */,
 				8495C0AD230154F00030BC7A /* SearchResult.swift in Sources */,
 				84684B052322463B009BFF05 /* TestExploreTableViewController.swift in Sources */,
 				84F63D4A2302A7B000BC3FC9 /* StartViewController.swift in Sources */,
+				8490BC7E232F9E9C00CDC362 /* EdgeInsetLabel.swift in Sources */,
 				84F6CB92232B6080003BED10 /* CustomTextField.swift in Sources */,
-				84F462B0232A7A3C00B55C30 /* RegViewController.swift in Sources */,
+				84F462B0232A7A3C00B55C30 /* (null) in Sources */,
 				84FF4624230E99E900DB153D /* Films.swift in Sources */,
 				84223289232A17C90040690E /* ExploreViewModel.swift in Sources */,
 				84590847230ACEE100E9224A /* ProfileManager.swift in Sources */,
@@ -356,7 +357,7 @@
 				842C4B0623067BD7008BF0EA /* Network.swift in Sources */,
 				84F6DAED231413D500FAFBAD /* UpgradeAnonymousAccountViewController.swift in Sources */,
 				84365A2622FC29AF0098D666 /* AppDelegate.swift in Sources */,
-				84F462AE232A333400B55C30 /* TextFieldAnimation.swift in Sources */,
+				84F462AE232A333400B55C30 /* (null) in Sources */,
 				84590841230A932A00E9224A /* MovieDetailViewController.swift in Sources */,
 				84FA585723040C3900A2258C /* TransitionAnimator.swift in Sources */,
 				84FA586B23044AB400A2258C /* ChangePasswordViewController.swift in Sources */,
