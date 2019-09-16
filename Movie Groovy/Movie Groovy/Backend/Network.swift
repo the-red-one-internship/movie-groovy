@@ -74,6 +74,7 @@ struct Network {
 extension Network: MovieDataProvider{
     func getGenreDict(success: @escaping ([Int: String])->Void){
         let url = URL(string: self.URLBase + "genre/movie/list?api_key=\(self.APIKey)&language=\(Locale.current.languageCode!)")!
+        print(url)
         let task = URLSession.shared.dataTask(with: url){ data, response, error in
             if let error = error {
                 print(error)
@@ -172,7 +173,7 @@ extension Network: MovieDataProvider{
         task.resume()
     }
     
-    func getMovieDataSearch(for searchString: String, page: Int, success: @escaping ([SearchResult])->Void){
+    func getMovieDataSearch(for searchString: String, page: Int, success: @escaping ([SearchResult])->Void) {
         var preUrlString = String( self.URLBase + "movie/popular?api_key=" + self.APIKey + "&language=\(Locale.current.languageCode!)&page=\(page)")
         if searchString != "" {
             let encodedText = searchString.addingPercentEncoding(

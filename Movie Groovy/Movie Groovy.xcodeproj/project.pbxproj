@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84223289232A17C90040690E /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84223288232A17C90040690E /* ExploreViewModel.swift */; };
 		842C4B0623067BD7008BF0EA /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C4B0523067BD7008BF0EA /* Network.swift */; };
 		84365A2622FC29AF0098D666 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84365A2522FC29AF0098D666 /* AppDelegate.swift */; };
 		84365A2B22FC29AF0098D666 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84365A2922FC29AF0098D666 /* Main.storyboard */; };
 		84365A2D22FC29B00098D666 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84365A2C22FC29B00098D666 /* Assets.xcassets */; };
 		84365A3022FC29B00098D666 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84365A2E22FC29B00098D666 /* LaunchScreen.storyboard */; };
+		84461DE1232F5DDB00EBBFCD /* MovieDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84461DE0232F5DDB00EBBFCD /* MovieDetailsVM.swift */; };
 		84590841230A932A00E9224A /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84590840230A932A00E9224A /* MovieDetailViewController.swift */; };
 		84590847230ACEE100E9224A /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84590846230ACEE100E9224A /* ProfileManager.swift */; };
 		848A2CA622FD75F700CBA048 /* ToolCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A2CA522FD75F700CBA048 /* ToolCollectionViewCell.swift */; };
@@ -37,6 +39,7 @@
 /* Begin PBXFileReference section */
 		06905FCAA17BF976B1668CE6 /* Pods-Movie Groovy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie Groovy.release.xcconfig"; path = "Target Support Files/Pods-Movie Groovy/Pods-Movie Groovy.release.xcconfig"; sourceTree = "<group>"; };
 		1DB1C294E58A40BFEF203EC7 /* Pods-Movie Groovy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie Groovy.debug.xcconfig"; path = "Target Support Files/Pods-Movie Groovy/Pods-Movie Groovy.debug.xcconfig"; sourceTree = "<group>"; };
+		84223288232A17C90040690E /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExploreViewModel.swift; path = "Movie Groovy/Models/ExploreViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		842C4B0523067BD7008BF0EA /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Network.swift; path = "Movie Groovy/Backend/Network.swift"; sourceTree = SOURCE_ROOT; };
 		84365A2222FC29AF0098D666 /* Movie Groovy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie Groovy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84365A2522FC29AF0098D666 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,10 +47,11 @@
 		84365A2C22FC29B00098D666 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84365A2F22FC29B00098D666 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84365A3122FC29B00098D666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Movie Groovy/Info.plist"; sourceTree = SOURCE_ROOT; };
+		84461DE0232F5DDB00EBBFCD /* MovieDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MovieDetailsVM.swift; path = "Movie Groovy/Models/MovieDetailsVM.swift"; sourceTree = SOURCE_ROOT; };
 		84590840230A932A00E9224A /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MovieDetailViewController.swift; path = "Movie Groovy/MovieDetailViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84590846230ACEE100E9224A /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileManager.swift; path = "Movie Groovy/Backend/ProfileManager.swift"; sourceTree = SOURCE_ROOT; };
 		848A2CA522FD75F700CBA048 /* ToolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolCollectionViewCell.swift; path = "Movie Groovy/ToolCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		8495C0AC230154F00030BC7A /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		8495C0AC230154F00030BC7A /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchResult.swift; path = "Movie Groovy/Models/SearchResult.swift"; sourceTree = SOURCE_ROOT; };
 		84F63D4723028F5000BC3FC9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = "Movie Groovy/SettingsViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84F63D492302A7B000BC3FC9 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StartViewController.swift; path = "Movie Groovy/StartViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84F63D4B2302A92C00BC3FC9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Movie Groovy/LoginViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -63,7 +67,7 @@
 		84FA585923040E8800A2258C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		84FA586A23044AB400A2258C /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChangePasswordViewController.swift; path = "Movie Groovy/ChangePasswordViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84FF4621230E98E600DB153D /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DatabaseManager.swift; path = "Movie Groovy/Backend/DatabaseManager.swift"; sourceTree = SOURCE_ROOT; };
-		84FF4623230E99E900DB153D /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
+		84FF4623230E99E900DB153D /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Film.swift; path = "Movie Groovy/Models/Film.swift"; sourceTree = SOURCE_ROOT; };
 		84FF462B230EDCB600DB153D /* WatchlistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WatchlistTableViewController.swift; path = "Movie Groovy/WatchlistTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		ABFFCCAC7E69FFD5B5751DA6 /* Pods_Movie_Groovy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movie_Groovy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -169,6 +173,8 @@
 			children = (
 				8495C0AC230154F00030BC7A /* SearchResult.swift */,
 				84FF4623230E99E900DB153D /* Film.swift */,
+				84223288232A17C90040690E /* ExploreViewModel.swift */,
+				84461DE0232F5DDB00EBBFCD /* MovieDetailsVM.swift */,
 			);
 			name = Models;
 			path = "Movie Groovy/Models";
@@ -297,11 +303,13 @@
 				8495C0AD230154F00030BC7A /* SearchResult.swift in Sources */,
 				84F63D4A2302A7B000BC3FC9 /* StartViewController.swift in Sources */,
 				84FF4624230E99E900DB153D /* Film.swift in Sources */,
+				84223289232A17C90040690E /* ExploreViewModel.swift in Sources */,
 				84590847230ACEE100E9224A /* ProfileManager.swift in Sources */,
 				84F63D582302FC4000BC3FC9 /* TabBarViewController.swift in Sources */,
 				84F63D4E2302AA8300BC3FC9 /* SignUpViewController.swift in Sources */,
 				84F63D4823028F5000BC3FC9 /* SettingsViewController.swift in Sources */,
 				84FF4622230E98E600DB153D /* DatabaseManager.swift in Sources */,
+				84461DE1232F5DDB00EBBFCD /* MovieDetailsVM.swift in Sources */,
 				848A2CA622FD75F700CBA048 /* ToolCollectionViewCell.swift in Sources */,
 				84F8501A230BCA7700D99805 /* ExploreViewCell.swift in Sources */,
 				84F9245C2316741000B40A67 /* DelegatedCall.swift in Sources */,
