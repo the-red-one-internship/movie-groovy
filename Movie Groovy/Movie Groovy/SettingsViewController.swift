@@ -22,11 +22,13 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         
+         super.viewDidLoad()
+        
         let urlString = "https://pp.userapi.com/c851536/v851536244/3948d/3xmzEE0IxM4.jpg"
         let urlImage = URL(string: urlString)
         let imageData = try! Data(contentsOf: urlImage!)
         
-        super.viewDidLoad()
+        imageView.image = UIImage(data: imageData)
 
         if self.profileManager.userSession() {
             switch profileManager.getUserEmail() {
@@ -43,7 +45,7 @@ class SettingsViewController: UIViewController {
             }
         }
         
-        imageView.image = UIImage(data: imageData)
+        
     }
     
 }

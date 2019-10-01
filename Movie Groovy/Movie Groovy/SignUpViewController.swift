@@ -47,8 +47,6 @@ class SignUpViewController: UIViewController, UITabBarControllerDelegate, UIText
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
         self.view.isUserInteractionEnabled = true
         self.view.addGestureRecognizer(tapGesture)
-        
-        scrollView.bounces = false
     }
     
     @objc private func handleTap(sender: UITapGestureRecognizer) {
@@ -67,7 +65,6 @@ class SignUpViewController: UIViewController, UITabBarControllerDelegate, UIText
     }
     
     func registerForKeyboardNotifications() {
-        scrollView.bounces = true
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -78,50 +75,16 @@ class SignUpViewController: UIViewController, UITabBarControllerDelegate, UIText
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    @objc func keyboardWillShow(sender: Notification) {
-        self.getContentInsets(sender: sender, action: "show")
+    @objc func keyboardWillHide(sender: NSNotification) {
+        self.view.frame.origin.y = 0
     }
     
-    @objc func keyboardWillHide(sender: Notification) {
-        self.getContentInsets(sender: sender, action: "hide")
-    }
-    
-    func getContentInsets(sender: Notification, action: String) {
-        let info = sender.userInfo! as NSDictionary
-        let value = info.value(forKey: UIResponder.keyboardFrameBeginUserInfoKey) as! NSValue
-        let keyboardSize = value.cgRectValue.size
-        switch action {
-        case "show":
-            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height + 5, right: 0)
-            self.scrollTextToVisible(keyboardSize: keyboardSize)
-        case "hide":
-            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -keyboardSize.height - 5 , right: 0)
-        default:
-            scrollView.contentInset = UIEdgeInsets.zero
+    @objc func keyboardWillShow(sender: NSNotification) {
+        if let keyboardSize = (sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if activeTextField.isFirstResponder {
+                self.view.frame.origin.y -= keyboardSize.height / 2
+            }
         }
-    }
-    
-    func scrollTextToVisible(keyboardSize: CGSize) {
-        var aRect = self.view.frame
-        aRect.size.height -= keyboardSize.height
-        let activeTextFieldRect = activeTextField.frame
-        let activeTextFieldOrigin = activeTextFieldRect.origin
-        
-        if !aRect.contains(activeTextFieldOrigin) {
-            scrollView.scrollRectToVisible(activeTextFieldRect, animated: true)
-        }
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == email {
-            password.becomeFirstResponder()
-        } else if textField == password {
-            confirmPassword.becomeFirstResponder()
-        } else {
-            self.view.endEditing(true)
-        }
-        
-        return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
